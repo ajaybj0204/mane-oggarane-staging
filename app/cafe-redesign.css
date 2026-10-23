@@ -215,3 +215,73 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .cafe-site-header .cafe-nav-links a:focus-visible{outline-color:#ffc467}
 .cafe-footer-group a:focus-visible{outline-color:#ffc467}
 @media(max-width:700px){.cafe-category-card:focus-visible{outline-offset:4px}.cafe-hero-art{max-width:440px;width:100%;margin-left:auto;margin-right:auto}}
+
+
+
+/* Shared illustrated ambience: warm turmeric dust and minimal floating vegetables/spices.
+   SVGs and CSS only: no WebGL, no animation dependency, no input interception. */
+.cafe-logo-holder{width:51px;height:51px;border:0;overflow:hidden;display:grid;place-items:center;background:#fff4df;border-radius:50%;padding:3px;box-shadow:0 0 0 1px #eaaa3a,0 3px 12px #0003;flex-shrink:0}
+.cafe-logo-image{display:block;width:100%;height:100%;object-fit:contain;border-radius:50%}
+.cafe-brand:hover .cafe-logo-holder{transform:translateY(-1px) rotate(0);box-shadow:0 0 0 2px #ffc76d,0 6px 20px #0004}
+.cafe-footer-logo-link{width:120px;height:120px;display:block;overflow:hidden;border:2px solid #e8aa55;border-radius:50%;background:#fff2dc;padding:7px;box-shadow:0 13px 29px #0006;transition:transform .35s ease}
+.cafe-footer-logo-link:hover{transform:rotate(-4deg) scale(1.04)}
+.cafe-footer-logo-link img{display:block;width:100%;height:100%;object-fit:contain;border-radius:50%}
+.cafe-footer-brand strong{margin-top:17px}
+.flavor-section,.flavor-page{position:relative;isolation:isolate}
+.flavor-section{overflow:hidden}
+.flavor-section>.container,.flavor-section>.cafe-section-top,.flavor-page>*:not(.flavor-backdrop){position:relative;z-index:1}
+.flavor-page>.flavor-backdrop,.flavor-section>.flavor-backdrop{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.flavor-page>.flavor-backdrop{left:50%;right:auto;width:min(100vw,1800px);height:100%;transform:translateX(-50%)}
+.flavor-backdrop{contain:paint;user-select:none}
+.flavor-powder{position:absolute;inset:0;opacity:.88;pointer-events:none}
+.flavor-powder-a{background-image:url('/ambient-spice-dust.svg');background-size:100% 100%;background-repeat:no-repeat;mix-blend-mode:multiply;opacity:.72}
+.flavor-powder-b{background:radial-gradient(ellipse 280px 380px at -5% 37%,#efa42e25,transparent 76%),radial-gradient(ellipse 340px 390px at 106% 66%,#d6632923,transparent 77%),radial-gradient(ellipse 240px 150px at 50% 102%,#e7b24616,transparent 83%);opacity:.9}
+.flavor-powder-c{background:radial-gradient(circle at 7% 15%,#eeb8496b 0 2px,transparent 4px),radial-gradient(circle at 92% 27%,#df792e5c 0 2px,transparent 4px),radial-gradient(circle at 85% 81%,#f4b04569 0 1px,transparent 5px),radial-gradient(circle at 12% 71%,#d95d2e5c 0 2px,transparent 4px);background-size:210px 320px,320px 260px,230px 240px,290px 210px;opacity:.55;animation:flavor-glimmer 19s ease-in-out infinite alternate}
+.flavor-sparkles{position:absolute;inset:0;background-image:radial-gradient(circle,#ffc24a 0 2px,transparent 3px),radial-gradient(circle,#d46634 0 1px,transparent 2px),radial-gradient(circle,#f4be57 0 1px,transparent 2px);background-size:250px 300px,340px 230px,390px 280px;background-position:15px 20px,80px 125px,115px 75px;opacity:.26;mask-image:linear-gradient(90deg,#000 0%,transparent 28%,transparent 72%,#000 100%);animation:flavor-glimmer 13s ease-in-out infinite alternate}
+.flavor-motif{position:absolute;width:clamp(40px,5.4vw,90px);height:auto;aspect-ratio:1;pointer-events:none;filter:drop-shadow(0 8px 13px #7d491c38);opacity:.53;transform-origin:50% 65%;animation:flavor-drift 9.2s ease-in-out infinite alternate}
+.flavor-motif svg{width:100%;height:100%;display:block}
+.flavor-motif-1{left:-1.2%;top:10%;width:100px;animation-duration:10s}
+.flavor-motif-2{right:-1.5%;top:19%;width:78px;animation-duration:8s;animation-delay:-2s}
+.flavor-motif-3{right:3.5%;bottom:7%;width:75px;animation-duration:11s;animation-delay:-5s}
+.flavor-motif-4{left:3%;bottom:3%;width:79px;animation-duration:8s;animation-delay:-4s}
+.flavor-motif-5{left:14%;top:-4%;width:66px;opacity:.28;animation-delay:-6s}
+.flavor-motif-6{right:15%;bottom:-3%;width:73px;opacity:.3;animation-duration:12s}
+.flavor-motif-7{left:-2%;top:68%;width:63px;opacity:.36;animation-delay:-1s}
+.flavor-motif-8{right:2%;top:48%;width:48px;opacity:.3;animation-delay:-3s}
+.flavor-section .flavor-motif{opacity:.53}
+.flavor-page .flavor-motif{opacity:.47}
+.flavor-theme-cafe .flavor-motif{filter:drop-shadow(0 6px 15px #63422220)}
+.flavor-theme-nonveg .flavor-motif-3{opacity:.45}
+.flavor-theme-rewards .flavor-powder-b{background:radial-gradient(ellipse 270px 320px at 0% 40%,#e2b04e2a,transparent 85%),radial-gradient(ellipse 340px 360px at 100% 50%,#e1a53a28,transparent 80%)}
+.flavor-section>.container,.flavor-page>.container{position:relative;z-index:1}
+.flavor-page .form-panel,.flavor-page .cart-card,.flavor-page .tracking-hero,.flavor-page .tracking-order-card,.flavor-page .reward-showcase,.flavor-page .menu-grid .dish-card{box-shadow:0 14px 35px #39251a15}
+.flavor-page .form-panel{background:#fffaf5}
+.flavor-page>.eyebrow{color:#a75b24}
+.flavor-page h1:not(.cafe-hero h1){letter-spacing:-.025em}
+.flavor-page .alert{position:relative;z-index:2}
+@keyframes flavor-drift{0%{transform:translate3d(0,0,0) rotate(-8deg)}50%{transform:translate3d(9px,-14px,0) rotate(7deg)}100%{transform:translate3d(-5px,8px,0) rotate(-4deg)}}
+@keyframes flavor-glimmer{0%{opacity:.24;transform:translate3d(0,0,0)}100%{opacity:.7;transform:translate3d(0,-18px,0)}}
+@media(min-width:1024px){
+  .cafe-categories>.flavor-backdrop .flavor-motif-3{right:1%;bottom:3%}
+  .cafe-specials>.flavor-backdrop .flavor-motif-1{left:-.5%;top:5%}
+  .cafe-specials>.flavor-backdrop .flavor-motif-2{right:0;top:7%}
+}
+@media(max-width:980px){
+ .flavor-motif{opacity:.38!important;width:60px}
+ .flavor-motif-5,.flavor-motif-6{display:none}
+ .flavor-powder-a{opacity:.6}
+}
+@media(max-width:700px){
+ .cafe-logo-holder{width:39px;height:39px;padding:2px}
+ .cafe-footer-logo-link{width:87px;height:87px}
+ .flavor-motif{opacity:.23!important;width:40px!important}
+ .flavor-motif-3,.flavor-motif-4,.flavor-motif-7,.flavor-motif-8{display:none}
+ .flavor-powder-a{opacity:.39}
+ .flavor-powder-b{opacity:.48}
+ .flavor-sparkles{opacity:.15}
+ .flavor-page>.flavor-backdrop{width:100vw}
+}
+@media(prefers-reduced-motion:reduce){
+ .flavor-backdrop *{animation:none!important;transition:none!important}
+ .cafe-brand:hover .cafe-logo-holder,.cafe-footer-logo-link:hover{transform:none}
+}
