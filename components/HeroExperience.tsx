@@ -8,7 +8,6 @@ export default function HeroExperience(){
   const [imageFailed,setImageFailed]=useState(false);
   const dishes=menu.filter(d=>d.active&&d.image&&(d.stock_qty==null||d.stock_qty>0));
   const featured=dishes.find(d=>d.featured)||dishes[0];
-  const second=dishes.find(d=>d.id!==featured?.id&&d.category!==featured?.category)||dishes.find(d=>d.id!==featured?.id);
   useEffect(()=>setImageFailed(false),[featured?.id]);
   return <section className="cafe-hero" aria-labelledby="cafe-hero-title">
     <div className="cafe-hero-grain" aria-hidden="true"/>
@@ -36,7 +35,6 @@ export default function HeroExperience(){
           <div className="cafe-hero-photo-shade"/>
           <span className="cafe-hero-photo-label">FROM THE KITCHEN <span>✦</span> FRESH EVERY DAY</span>
         </div>
-        <div className="cafe-hero-floating-note"><span className="cafe-note-icon">✽</span><span><b>Food made with heart</b><small>{second?.name||'Karnataka-inspired comforts'}</small></span></div>
         <div className="cafe-steam cafe-steam-a" aria-hidden="true"/>
         <div className="cafe-steam cafe-steam-b" aria-hidden="true"/>
       </div>
