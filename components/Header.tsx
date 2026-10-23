@@ -17,7 +17,7 @@ export default function Header(){
     <header className="site-header cafe-site-header">
       <div className="container nav cafe-nav">
         <Link className="brand cafe-brand" href="/" aria-label="Mane and Oggarane home">
-          <span className="brand-emblem cafe-brand-emblem" aria-hidden="true">✽</span>
+          <span className="brand-emblem cafe-brand-emblem cafe-logo-holder"><img className="cafe-logo-image" src="/mane-oggarane-logo.png" alt="" width={48} height={48}/></span>
           <span><b>Mane <em>&</em> Oggarane</b><small lang="kn">ಮನೆ & ಒಗ್ಗರಣೆ</small></span>
         </Link>
         <button type="button" className="cafe-nav-toggle" aria-expanded={open} aria-controls="cafe-primary-navigation" aria-label={open?'Close navigation':'Open navigation'} onClick={()=>setOpen(!open)}><span/><span/><span/></button>
