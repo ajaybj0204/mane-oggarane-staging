@@ -10,7 +10,8 @@
     "audit:project": "node scripts/audit.mjs",
     "qa:source": "node scripts/qa-platform.mjs",
     "qa:http": "node scripts/qa-local-http.mjs",
-    "qa:logic": "node scripts/qa-order-status.mjs"
+    "qa:logic": "node scripts/qa-order-status.mjs",
+    "qa:webhook": "node scripts/qa-test-webhook.mjs"
   },
   "dependencies": {
     "next": "15.5.28",

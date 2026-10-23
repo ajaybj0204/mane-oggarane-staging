@@ -15,6 +15,8 @@ const cases=[
  ['Coupons validated in database',()=>{const s=file('supabase/migrations/003_campaign_coupon_audience.sql');assert.match(s,/coupon_is_eligible/)}],
  ['Loyalty points issued on delivery, once only',()=>{const s=file('supabase/migrations/001_full_platform.sql');assert.match(s,/if p_status='delivered'/);assert.match(s,/ledger_one_order_award/)}],
  ['Delivery zones enforce PIN and minimum',()=>{const s=file('supabase/migrations/006_stock_and_coupon_reservations.sql');assert.match(s,/delivery_zones/);assert.match(s,/minimum_paise/)}],
- ['Reduced-motion WebGL fallback',()=>{const s=file('components/HeroExperience.tsx');assert.match(s,/prefers-reduced-motion/);assert.match(s,/hero-fallback/)}]
+ ['3D removed from active homepage',()=>{const s=file('components/HeroExperience.tsx');assert.doesNotMatch(s,/KadaiScene|<Canvas/);assert.match(s,/className="cafe-hero-photo"/);assert.match(file('app/cafe-redesign.css'),/prefers-reduced-motion/)}],
+ ['Razorpay uses signed event-id header',()=>{const s=file('app/api/payments/webhook/route.ts');assert.match(s,/x-razorpay-event-id/);assert.doesNotMatch(s,/String\(evt\.id/)}],
+ ['Protected staging gets dedicated test webhook receiver',()=>{const e=file('supabase/functions/razorpay-test-webhook/index.ts');assert.match(e,/x-razorpay-signature/);assert.match(e,/x-razorpay-event-id/);assert.match(e,/crypto\.subtle\.sign/);assert.match(e,/rzp_test_/);assert.match(e,/mark_order_paid/);assert.match(e,/confirm_provider_refund/);assert.match(e,/payment_events/);assert.match(file('supabase/config.toml'),/verify_jwt = false/)}]
 ];let errors=0;for(const [name,fn] of cases){try{fn();console.log('PASS',name)}catch(e){console.error('FAIL',name,e.message);errors++}}
 console.log(`\n${cases.length-errors}/${cases.length} static acceptance checks passed`);process.exitCode=errors?1:0;
