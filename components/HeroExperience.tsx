@@ -1,4 +1,46 @@
-'use client';import React,{useState,useEffect} from 'react';import dynamic from 'next/dynamic';import Link from 'next/link';
-const KadaiScene=dynamic(()=>import('./KadaiScene'),{ssr:false,loading:()=>null});
-export default function HeroExperience(){const[enabled,setEnabled]=useState(false);const[reduced,setReduced]=useState(false);useEffect(()=>{const m=window.matchMedia('(prefers-reduced-motion: reduce)');const rm=m.matches;setReduced(rm);setEnabled(!rm&&!!document.createElement('canvas').getContext('webgl2'));},[]);
- return <section className="hero"><div className="container hero-inner"><div className="hero-copy"><span className="eyebrow gold">KARNATAKA · HEIRLOOM COOKING</span><h1 lang="kn">ಮನೆಯ ಘಮ,<br/> ಪ್ರೀತಿಯ ರುಚಿ</h1><p>From our warm kitchen to your family table. Discover the magic of oggarane, beautifully prepared food, and comforting home-style flavors.</p><div className="hero-actions"><Link className="button cream" href="/menu">Order your favorites ↗</Link><Link className="button ghost" href="#kitchens">Explore the kitchens ↓</Link></div><span className="hero-note" lang="kn">ಒಗ್ಗರಣೆಯ ಘಮದಲ್ಲಿ ಮನೆಯ ನೆನಪು.</span></div><div className="hero-photo hero-experience"><div className="heritage-ring"/>{enabled&&!reduced?<KadaiScene/>:<img className="hero-fallback" src="/mane-oggarane-logo.png" alt="Traditional oggarane pot"/>}<span className="hero-photo-caption" lang="kn">ಪ್ರತಿ ತುತ್ತಿನಲ್ಲೂ ಮನೆಯ ಮಮತೆ.</span>{enabled&&<button className="motion-control" onClick={()=>setEnabled(false)}>Pause 3D</button>}{!enabled&&!reduced&&<button className="motion-control" onClick={()=>setEnabled(true)}>Explore 3D</button>}</div></div></section>}
+'use client';
+import {useEffect,useState} from 'react';
+import Link from 'next/link';
+import {useApp} from './AppProvider';
+
+export default function HeroExperience(){
+  const {menu}=useApp();
+  const [imageFailed,setImageFailed]=useState(false);
+  const dishes=menu.filter(d=>d.active&&d.image&&(d.stock_qty==null||d.stock_qty>0));
+  const featured=dishes.find(d=>d.featured)||dishes[0];
+  const second=dishes.find(d=>d.id!==featured?.id&&d.category!==featured?.category)||dishes.find(d=>d.id!==featured?.id);
+  useEffect(()=>setImageFailed(false),[featured?.id]);
+  return <section className="cafe-hero" aria-labelledby="cafe-hero-title">
+    <div className="cafe-hero-grain" aria-hidden="true"/>
+    <div className="container cafe-hero-grid">
+      <div className="cafe-hero-content">
+        <div className="cafe-hero-kicker"><span className="cafe-kicker-line"/> MADE WITH LOVE · KARNATAKA <span>✳</span></div>
+        <p className="cafe-hero-supertitle" lang="kn">ಮನೆಯ ಸವಿಯ ನೆನಪು</p>
+        <h1 id="cafe-hero-title"><span lang="kn">ಮನೆಯ ಘಮ,</span><br/><em lang="kn">ಪ್ರೀತಿಯ ರುಚಿ.</em></h1>
+        <p className="cafe-hero-description">Comfort food that feels like coming home. Freshly made Karnataka favorites, thoughtful little details, and the joy of sharing a good meal.</p>
+        <div className="cafe-hero-actions">
+          <Link className="cafe-pill cafe-pill-bright" href="/menu">Explore our menu <span aria-hidden="true">↗</span></Link>
+          <Link className="cafe-pill cafe-pill-outline" href="/story">Our little story <span aria-hidden="true">→</span></Link>
+        </div>
+        <div className="cafe-hero-footnote"><span className="cafe-footnote-mark">✦</span><span lang="kn">ಒಂದು ತುತ್ತು, ಸಾವಿರ ನೆನಪುಗಳು.</span><span className="cafe-footnote-rule"/></div>
+      </div>
+      <div className="cafe-hero-art">
+        <div className="cafe-hero-orbit cafe-orbit-one" aria-hidden="true"/>
+        <div className="cafe-hero-orbit cafe-orbit-two" aria-hidden="true"/>
+        <div className="cafe-hero-spice cafe-spice-one" aria-hidden="true">✺</div>
+        <div className="cafe-hero-spice cafe-spice-two" aria-hidden="true">✳</div>
+        <div className="cafe-hero-photo">
+          {featured?.image&&!imageFailed?
+            <img src={featured.image} alt={featured.name+' freshly prepared at Mane & Oggarane'} fetchPriority="high" referrerPolicy="no-referrer" onError={()=>setImageFailed(true)}/>:
+            <div className="cafe-hero-photo-fallback" aria-label="Mane & Oggarane kitchen"><span>✳</span><strong lang="kn">ಮನೆಯ ರುಚಿ</strong></div>}
+          <div className="cafe-hero-photo-shade"/>
+          <span className="cafe-hero-photo-label">FROM THE KITCHEN <span>✦</span> FRESH EVERY DAY</span>
+        </div>
+        <div className="cafe-hero-floating-note"><span className="cafe-note-icon">✽</span><span><b>Food made with heart</b><small>{second?.name||'Karnataka-inspired comforts'}</small></span></div>
+        <div className="cafe-steam cafe-steam-a" aria-hidden="true"/>
+        <div className="cafe-steam cafe-steam-b" aria-hidden="true"/>
+      </div>
+    </div>
+    <a className="cafe-scroll-nudge" href="#kitchens">SCROLL TO EXPLORE <span>↓</span></a>
+  </section>;
+}
