@@ -3,6 +3,7 @@ import HeroExperience from '../components/HeroExperience';
 import CategoryGallery from '../components/CategoryGallery';
 import HomeSpecials from '../components/HomeSpecials';
 import PreparationJourney from '../components/PreparationJourney';
+import FlavorBackdrop from '../components/ambient/FlavorBackdrop';
 
 export default function Home(){
  return <main className="cafe-main">
@@ -19,6 +20,6 @@ export default function Home(){
      <div><p className="cafe-overline">THE MANE FAMILY</p><h2 id="cafe-family-title">Good food. <em>Good memories.</em> Little rewards.</h2><p lang="kn" className="cafe-family-kannada">ಮತ್ತೆ ಮತ್ತೆ ಬನ್ನಿ, ನಮ್ಮ ಮನೆಯ ರುಚಿ ಸವಿಯಿರಿ.</p><p>Earn points on eligible fulfilled orders and exchange them for personal discounts. Because coming back should feel special.</p><Link href="/rewards" className="cafe-pill cafe-pill-bright">Explore family rewards <span>↗</span></Link></div>
      <div className="cafe-family-stamp" aria-hidden="true"><span>✳</span><strong>MADE FOR<br/>THE MANE<br/>FAMILY</strong><small lang="kn">ಪ್ರೀತಿಯ ಆತಿಥ್ಯ</small></div>
    </div></section>
-   <section className="cafe-final-cta"><div className="container"><span className="cafe-overline">YOUR NEXT FAVORITE IS WAITING</span><h2>Something delicious is <em>just a click away.</em></h2><div><Link className="cafe-pill cafe-pill-bright" href="/menu">Order something lovely ↗</Link><Link className="cafe-text-link" href="/orders">Track an order →</Link></div></div></section>
+   <section className="cafe-final-cta flavor-section"><FlavorBackdrop variant="spice"/><div className="container"><span className="cafe-overline">YOUR NEXT FAVORITE IS WAITING</span><h2>Something delicious is <em>just a click away.</em></h2><div><Link className="cafe-pill cafe-pill-bright" href="/menu">Order something lovely ↗</Link><Link className="cafe-text-link" href="/orders">Track an order →</Link></div></div></section>
  </main>;
 }
