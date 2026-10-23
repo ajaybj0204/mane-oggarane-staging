@@ -86,15 +86,23 @@ Deno.serve(async (request:Request)=>{
     if(type==='payment.captured'||type==='order.paid'){
       const snapshot=entity(evt,'payment');
       const providerOrderId=value(snapshot.order_id)||value(entity(evt,'order').id);
-      // order.paid includes the order entity, but a verified captured payment is
-      // mandatory before money/order state changes. An event lacking a payment
-      // entity must be retried/reconciled rather than optimistically marked paid.
+      // A captured payment must be independently verified with Razorpay.
+      // Some order.paid snapshots only contain the order entity.
       const paymentId=value(snapshot.id);
-      if(!providerOrderId||!paymentId)throw new Error('Captured-payment reconciliation needs a payment entity');
+      if(!providerOrderId)throw new Error('Captured-payment reconciliation needs a provider order ID');
       const {data:order,error:orderError}=await db.from('orders').select('id,total_paise').eq('razorpay_order_id',providerOrderId).maybeSingle();
       if(orderError)throw orderError;
       if(order){
-        const canonical=await razorpay('payments/'+encodeURIComponent(paymentId),apiKey,apiSecret) as unknown as ProviderPayment;
+        let canonical:ProviderPayment;
+        if(paymentId){
+          canonical=await razorpay('payments/'+encodeURIComponent(paymentId),apiKey,apiSecret) as unknown as ProviderPayment;
+        }else{
+          const result=await razorpay('orders/'+encodeURIComponent(providerOrderId)+'/payments',apiKey,apiSecret);
+          const payments=Array.isArray(result.items)?result.items.map(item=>object(item) as unknown as ProviderPayment):[];
+          const captured=payments.filter(p=>p.status==='captured'&&p.order_id===providerOrderId&&p.currency==='INR'&&p.amount===order.total_paise);
+          if(captured.length!==1)throw new Error('Cannot uniquely reconcile captured payment on order');
+          canonical=await razorpay('payments/'+encodeURIComponent(captured[0].id),apiKey,apiSecret) as unknown as ProviderPayment;
+        }
         if(canonical.status!=='captured'||canonical.order_id!==providerOrderId||canonical.currency!=='INR'||canonical.amount!==order.total_paise){
           throw new Error('Canonical payment validation failed');
         }
