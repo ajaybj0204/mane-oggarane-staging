@@ -1,5 +1,12 @@
 # Mane & Oggarane — Integrated full-stack restaurant platform
 
+## Payment-readiness batch · October 2026 (private Vercel staging)
+
+The redesigned, 3D-free cafe UI has been deployed on protected Vercel staging. Its public Razorpay callback cannot pass Vercel Authentication. The separate Supabase Edge Function in `supabase/functions/razorpay-test-webhook/` is the intended signed **Test Mode** receiver. See **[PAYMENT_STAGING_RELEASE.md](docs/PAYMENT_STAGING_RELEASE.md)** for the consolidated setup, manual Supabase secrets, Razorpay dashboard webhook destination, and safe acceptance test matrix.
+
+Run `npm run qa:source`, `npm run qa:logic`, `npm run typecheck`, `npm run build`, and (after configuring secrets) `WEBHOOK_TEST_URL=https://<your-project>.supabase.co/functions/v1/razorpay-test-webhook npm run qa:webhook`. This does not replace actual Test Mode signed webhook/refund verification. **Do not accept live payments yet.**
+
+
 **Brand:** Mane & Oggarane (ಮನೆ & ಒಗ್ಗರಣೆ) · **Purpose:** flagship portfolio project and reusable restaurant technology foundation.
 
 This repository integrates the **supplied Stitch screens/assets** with a Next.js customer storefront, a live Supabase/Postgres backend, Razorpay order and payment validation, owner operations, delivery/pickup, loyalty, coupons, customer segmentation and an interactive WebGL cooking-pot scene. This is a **source-code deliverable**, not a hosted deployment or a claim of completed live-payment testing.
