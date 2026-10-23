@@ -1,0 +1,211 @@
+/* Mane & Oggarane · India Cafe-inspired visual refresh.
+   Original design, no WebGL; accessible CSS motion and existing live menu images. */
+:root{--maroon:#ab4d22;--maroon-dark:#853614;--terracotta:#c66a36;--gold:#f5a12f;--ivory:#fbf7f1;--paper:#fffdf9;--ink:#292521;--muted:#73685e;--border:#ecdfcf}
+body{background:#fbf7f1}
+::selection{background:#ffb44e;color:#24211e}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #eda23d;outline-offset:3px}
+.cafe-overline{font-size:.7rem;font-weight:800;letter-spacing:.23em;color:#bd6427;text-transform:uppercase}
+.cafe-section-top{display:flex;align-items:end;justify-content:space-between;gap:35px;margin-bottom:36px}
+.cafe-section-top h2{font-family:'Playfair Display','Noto Serif Kannada',Georgia,serif;font-size:clamp(2.25rem,4vw,3.75rem);line-height:1.13;margin:11px 0 0;max-width:740px;letter-spacing:-.035em}
+.cafe-section-top h2 em,.cafe-manifesto h2 em,.cafe-family-section h2 em,.cafe-final-cta h2 em{font-weight:500;color:#b76230}
+.cafe-section-top>p{max-width:290px;line-height:1.85;color:var(--muted);font-size:.93rem;margin:0 0 5px}
+.cafe-text-link{font-size:.81rem;font-weight:800;letter-spacing:.03em;display:inline-flex;align-items:center;gap:16px;border-bottom:1px solid currentColor;padding-bottom:8px;transition:gap .3s,color .3s}
+.cafe-text-link:hover{gap:25px;color:#de7a1d}
+.cafe-pill{display:inline-flex;gap:22px;align-items:center;justify-content:center;border-radius:5px;padding:16px 25px;font-size:.85rem;font-weight:800;letter-spacing:.01em;transition:transform .25s ease,box-shadow .25s ease,background .25s ease}
+.cafe-pill:hover{transform:translateY(-3px);box-shadow:0 12px 30px #0003}
+.cafe-pill-bright{background:#f8a22a;color:#231d17}
+.cafe-pill-bright:hover{background:#ffbb53}
+.cafe-pill-outline{border:1px solid #be9e79;color:#f6eee3;background:#ffffff08}
+.cafe-pill-outline:hover{background:#fff1}
+.preview-flag{background:#e9932c;color:#241e18;font-size:.65rem;font-weight:800;letter-spacing:.18em;padding:8px 12px}
+.cafe-site-header{background:#252321;border-bottom:1px solid #ffffff20;box-shadow:0 12px 32px #15121024}
+.cafe-nav{min-height:82px;position:relative}
+.cafe-brand{color:#faf5eb;gap:13px}
+.cafe-brand:hover{color:#fff}
+.cafe-brand b{font-size:1.21rem;letter-spacing:-.03em}
+.cafe-brand em{color:#ffad36}
+.cafe-brand small{color:#e3c9a3}
+.cafe-brand-emblem{border:1.4px solid #f1a331;color:#efa438;width:48px;height:48px;border-radius:50%;font-size:29px;transition:transform .45s}
+.cafe-brand:hover .cafe-brand-emblem{transform:rotate(28deg)}
+.cafe-nav-links{gap:clamp(12px,1.9vw,29px);font-size:.8rem;color:#e4ded6}
+.cafe-nav-links a{position:relative;padding:10px 0;white-space:nowrap}
+.cafe-nav-links a:hover,.cafe-nav-links a[aria-current="page"]{color:#ffad35}
+.cafe-nav-links a[aria-current="page"]::after{content:"";position:absolute;bottom:0;left:0;right:0;height:2px;background:#f4a035}
+.cafe-cart-link{background:#f7a22d;color:#25201b;padding:12px 16px;border-radius:4px;transition:background .25s,transform .25s}
+.cafe-cart-link:hover{background:#ffbe5b;transform:translateY(-2px)}
+.cafe-cart-link .count{background:#29221b;color:#fff;min-width:23px;display:inline-grid;place-items:center;padding:2px 7px}
+.cafe-nav-toggle{display:none}
+.cafe-hero{position:relative;background:#212120;color:#fff8ec;overflow:hidden;isolation:isolate}
+.cafe-hero-grain{position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 65% 26%,#77421855,transparent 50%),radial-gradient(circle at 10% 85%,#53322675,transparent 35%),repeating-linear-gradient(120deg,#ffffff04 0 1px,transparent 1px 9px)}
+.cafe-hero-grid{min-height:700px;display:grid;grid-template-columns:1.02fr .98fr;gap:35px;align-items:center;padding:65px 0 78px}
+.cafe-hero-content{position:relative;z-index:2;max-width:650px;animation:cafe-rise .85s ease both}
+.cafe-hero-kicker{display:flex;align-items:center;gap:15px;font-size:.72rem;color:#f1bd71;letter-spacing:.24em;font-weight:800}
+.cafe-kicker-line{height:1px;width:34px;background:#f2a53b}
+.cafe-hero-kicker>span:last-child{font-size:21px}
+.cafe-hero-supertitle{font-family:'Noto Serif Kannada',serif;color:#f9b967;font-size:1.2rem;margin:27px 0 4px}
+.cafe-hero h1{font-family:'Noto Serif Kannada','Playfair Display',serif;font-size:clamp(3rem,5vw,5.6rem);line-height:1.42;font-weight:700;letter-spacing:-.045em;margin:0 0 15px;color:#fff5e7}
+.cafe-hero h1 em{font-style:normal;color:#ffad38}
+.cafe-hero-description{font-size:1.04rem;line-height:1.95;color:#d9cabb;max-width:495px}
+.cafe-hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin:30px 0 55px}
+.cafe-hero-footnote{display:flex;align-items:center;gap:13px;color:#ddc8aa;font-family:'Noto Serif Kannada',serif;font-size:.92rem}
+.cafe-footnote-mark{color:#eca03b;font-size:22px}
+.cafe-footnote-rule{height:1px;max-width:80px;flex:1;background:#715844}
+.cafe-hero-art{height:595px;position:relative;display:flex;align-items:center;justify-content:center;isolation:isolate}
+.cafe-hero-orbit{position:absolute;aspect-ratio:1;border-radius:50%;border:1px solid #ffa73555;z-index:-1}
+.cafe-orbit-one{width:min(105%,590px);transform:rotate(-17deg);border-style:dashed;animation:cafe-orbit 45s linear infinite}
+.cafe-orbit-two{width:min(85%,470px);background:radial-gradient(circle,#c9792050,transparent 68%);box-shadow:0 0 95px #f28f1c30}
+.cafe-hero-photo{position:relative;width:min(95%,490px);height:520px;border:8px solid #aa661d;border-radius:46% 46% 9px 9px;overflow:hidden;background:#683b24;box-shadow:0 30px 90px #0008,0 0 0 1px #d9a059;transform:rotate(1.5deg);animation:cafe-photo-in .95s .15s both}
+.cafe-hero-photo img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+.cafe-hero-photo:hover img{transform:scale(1.07)}
+.cafe-hero-photo-shade{position:absolute;inset:0;background:linear-gradient(180deg,#140d0500 54%,#160e05dd 100%);pointer-events:none}
+.cafe-hero-photo-label{position:absolute;bottom:25px;left:18px;right:18px;text-align:center;font-size:.7rem;font-weight:800;letter-spacing:.15em;color:#fff7e8}
+.cafe-hero-photo-label span{color:#f6a52f;margin:0 12px}
+.cafe-hero-photo-fallback{height:100%;display:grid;place-content:center;text-align:center;gap:20px;background:radial-gradient(circle at 50% 55%,#9d491f,#3b261f 70%);font-family:'Noto Serif Kannada',serif;font-size:2rem}
+.cafe-hero-photo-fallback>span{font-size:8rem;color:#eba03b;line-height:1}
+.cafe-hero-spice{position:absolute;color:#f2a336;text-shadow:0 0 40px #f4ae5633;z-index:3;pointer-events:none;animation:cafe-sway 5s ease-in-out infinite}
+.cafe-spice-one{top:5%;right:0;font-size:90px}
+.cafe-spice-two{bottom:3%;left:0;font-size:56px;animation-delay:-2s}
+.cafe-hero-floating-note{position:absolute;z-index:4;bottom:70px;left:-15px;display:flex;align-items:center;gap:12px;padding:13px 19px;background:#fff7e8;color:#34281f;box-shadow:0 14px 30px #0004;border-radius:5px;max-width:245px;transform:rotate(-4deg);animation:cafe-sway 5.5s ease-in-out infinite}
+.cafe-note-icon{font-size:35px;color:#ca7525}
+.cafe-hero-floating-note b,.cafe-hero-floating-note small{display:block}
+.cafe-hero-floating-note b{font-size:.78rem}
+.cafe-hero-floating-note small{font-size:.67rem;color:#806958;line-height:1.4}
+.cafe-steam{position:absolute;top:-22px;width:66px;height:125px;border-left:3px solid #fff5d046;filter:blur(10px);border-radius:50%;z-index:5;pointer-events:none;animation:cafe-steam-rise 5s ease-in-out infinite}
+.cafe-steam-a{left:50%}.cafe-steam-b{left:58%;animation-delay:-2s}
+.cafe-scroll-nudge{position:absolute;bottom:23px;left:50%;transform:translateX(-50%);font-size:.6rem;letter-spacing:.24em;color:#d4b993;display:flex;gap:18px;align-items:center}
+.cafe-scroll-nudge span{font-size:20px;animation:cafe-bounce 2s infinite}
+.cafe-love-strip{background:#eb962b;color:#29221c;overflow:hidden}
+.cafe-love-strip .container{min-height:65px;display:flex;justify-content:space-around;align-items:center;gap:20px;flex-wrap:wrap;padding:14px 0;text-align:center}
+.cafe-love-strip span{font-size:.75rem;font-weight:800;letter-spacing:.085em}
+.cafe-love-strip span[lang="kn"]{font-family:'Noto Serif Kannada',serif;font-size:.85rem;letter-spacing:0}
+.cafe-categories{background:#faf7f1;padding:110px 0 105px}
+.cafe-category-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.cafe-category-card{height:405px;position:relative;overflow:hidden;border-radius:7px;background:#3e2d25;color:white;isolation:isolate;transition:transform .32s ease,box-shadow .32s ease}
+.cafe-category-card:hover{transform:translateY(-9px);box-shadow:0 24px 45px #38251735}
+.cafe-category-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s ease;z-index:-2}
+.cafe-category-card:hover img{transform:scale(1.09)}
+.cafe-category-mask{position:absolute;inset:0;background:linear-gradient(180deg,#160f07a0 0%,#20140c11 27%,#140d09f5 100%);z-index:-1}
+.cafe-category-fallback{height:100%;display:grid;place-items:center;background:radial-gradient(circle,#ab6137,#332924);font-size:7rem;color:#f9ab43}
+.cafe-category-index{position:absolute;top:21px;left:19px;color:#ffcf8d;font-size:.67rem;letter-spacing:.2em;font-weight:800}
+.cafe-category-copy{position:absolute;left:20px;right:20px;bottom:22px;display:grid;gap:6px}
+.cafe-category-copy small{font-family:'Noto Serif Kannada',serif;font-size:1.03rem;color:#ffc277}
+.cafe-category-copy strong{font-family:'Playfair Display',serif;font-size:1.65rem;line-height:1.1;font-weight:600}
+.cafe-category-copy>span:not(.cafe-category-explore){font-size:.77rem;color:#e2d3c5}
+.cafe-category-explore{margin-top:15px;padding-top:10px;border-top:1px solid #ffffff50;display:flex;align-items:center;justify-content:space-between;text-transform:uppercase;letter-spacing:.09em;font-size:.66rem;font-weight:800}
+.cafe-category-explore b{font-size:20px;color:#ffb246}
+.cafe-manifesto{background:#252422;color:#fff5e6;padding:95px 0;overflow:hidden}
+.cafe-manifesto-grid{display:grid;grid-template-columns:.75fr 1.25fr;align-items:center;gap:clamp(40px,7vw,130px)}
+.cafe-manifesto-seal{width:min(100%,330px);aspect-ratio:1;justify-self:center;border:2px solid #dd8d32;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;box-shadow:0 0 0 20px #d78d2912,0 0 0 42px #d78d2910;transform:rotate(-7deg)}
+.cafe-manifesto-seal>span{font-size:5rem;color:#e99734;line-height:1;animation:cafe-sway 6s ease-in-out infinite}
+.cafe-manifesto-seal i{font-size:.69rem;letter-spacing:.29em;color:#f6b65e;font-style:normal}
+.cafe-manifesto-seal strong{font-family:'Noto Serif Kannada',serif;font-size:1.22rem;text-align:center}
+.cafe-manifesto h2,.cafe-family-section h2,.cafe-final-cta h2{font-family:'Playfair Display','Noto Serif Kannada',serif;font-size:clamp(2.7rem,5vw,4.5rem);line-height:1.2;letter-spacing:-.035em;margin:14px 0 20px}
+.cafe-manifesto h2 em,.cafe-family-section h2 em,.cafe-final-cta h2 em{color:#ffad38}
+.cafe-manifesto p:not(.cafe-overline){color:#dbcbba;line-height:1.95;max-width:560px;font-size:.97rem;margin-bottom:23px}
+.cafe-manifesto .cafe-text-link{color:#f3b55c}
+.cafe-specials{background:#fffdf8;padding:110px 0}
+.cafe-specials .cafe-section-top{align-items:center}
+.cafe-specials-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:23px}
+.cafe-special-card{background:#fffaf2;border:1px solid #e9dac7;border-radius:7px;overflow:hidden;box-shadow:0 9px 32px #3220120e;transition:transform .3s,box-shadow .3s}
+.cafe-special-card:hover{transform:translateY(-7px);box-shadow:0 19px 40px #32201223}
+.cafe-special-image{position:relative;overflow:hidden}
+.cafe-special-image .dish-image{height:270px;border-radius:0}
+.cafe-special-image .dish-image img{width:100%;height:100%;object-fit:cover;transition:transform .55s}
+.cafe-special-card:hover .dish-image img{transform:scale(1.07)}
+.cafe-special-index{position:absolute;bottom:16px;left:17px;background:#25201bdc;color:#fff2df;padding:7px 12px;border-radius:3px;font-size:.62rem;letter-spacing:.12em;font-weight:800}
+.cafe-special-info{min-height:248px;padding:24px;display:flex;flex-direction:column;justify-content:space-between}
+.cafe-special-kind{color:#aa5c2b;letter-spacing:.18em;font-size:.66rem;font-weight:800;margin:0 0 8px}
+.cafe-special-info h3{font-family:'Playfair Display',serif;font-size:1.47rem;color:#272421;margin:0 0 8px}
+.cafe-special-info p:not(.cafe-special-kind){color:#77685b;font-size:.8rem;line-height:1.65;margin:0}
+.cafe-special-bottom{border-top:1px solid #e8d9c7;padding-top:16px;margin-top:17px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.cafe-special-bottom strong{font-size:1.12rem;color:#9b401d}
+.cafe-special-bottom button{background:#292724;color:#fff8ed;border:0;border-radius:3px;padding:11px 12px;font-size:.72rem;font-weight:800;transition:background .25s}
+.cafe-special-bottom button:hover{background:#c06b21}
+.cafe-special-bottom button span{font-size:1rem;margin-left:5px}
+.cafe-special-empty{background:#f9efe2;border-radius:8px;padding:45px;grid-column:1/-1}
+.cafe-preparation{background:#f3ede4;padding:110px 0}
+.cafe-preparing-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.cafe-preparing-step{display:flex;flex-direction:column;background:#fffaf4;color:#292521;border:1px solid #e6d7c6;border-radius:6px;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.cafe-preparing-step:hover{transform:translateY(-6px);box-shadow:0 20px 35px #32201220}
+.cafe-preparing-image{height:210px;position:relative;overflow:hidden;background:#4d3829;display:grid;place-items:center}
+.cafe-preparing-image img{height:100%;width:100%;object-fit:cover;transition:transform .55s}
+.cafe-preparing-step:hover img{transform:scale(1.08)}
+.cafe-preparing-image>span{font-size:5rem;color:#ffb754}
+.cafe-preparing-image>small{position:absolute;right:15px;top:15px;background:#1d1a17cc;color:#ffd69b;font-size:.65rem;font-weight:800;padding:7px 12px;letter-spacing:.12em}
+.cafe-preparing-step .preparing-detail{padding:24px;display:flex;flex-direction:column;align-items:start;flex:1;min-width:0}
+.cafe-preparing-step .cafe-story-number{color:#be6b2c;font-size:.68rem;letter-spacing:.15em;font-weight:800}
+.cafe-preparing-step .preparing-detail strong{font-family:'Noto Serif Kannada',serif;color:#af592b;font-size:1rem;line-height:1.8;display:block;margin-top:12px}
+.cafe-preparing-step .preparing-detail h3{font-family:'Playfair Display',serif;font-size:1.42rem;margin:8px 0}
+.cafe-preparing-step .preparing-detail p{color:#7a6c60;font-size:.8rem;line-height:1.8;margin:6px 0 20px;flex:1}
+.cafe-story-arrow{font-size:.74rem;font-weight:800;border-bottom:1px solid #af6832;padding-bottom:6px}
+.cafe-family-section{background:radial-gradient(circle at 86% 48%,#8641177e,transparent 45%),linear-gradient(115deg,#2b2824,#282421);color:#fff9ed;padding:100px 0;overflow:hidden}
+.cafe-family-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:60px;align-items:center}
+.cafe-family-section h2{max-width:710px}
+.cafe-family-section .cafe-family-kannada{font-family:'Noto Serif Kannada',serif;font-size:1.25rem;color:#ffba63}
+.cafe-family-section p:not(.cafe-overline){line-height:1.9;max-width:580px;color:#e0d0bd}
+.cafe-family-section .cafe-pill{margin-top:18px}
+.cafe-family-stamp{width:min(360px,100%);aspect-ratio:1;display:grid;place-items:center;text-align:center;justify-self:center;border:2px dashed #f6a948;border-radius:50%;color:#ffd18d;transform:rotate(8deg);box-shadow:0 0 0 14px #ffab3414,0 0 0 38px #ffab3408}
+.cafe-family-stamp>span{font-size:55px;line-height:1;align-self:end;animation:cafe-sway 6s infinite}
+.cafe-family-stamp strong{font-family:'Playfair Display',serif;font-size:2.1rem;line-height:1.12;letter-spacing:.02em}
+.cafe-family-stamp small{font-family:'Noto Serif Kannada',serif;font-size:.9rem;align-self:start}
+.cafe-final-cta{background:#f8a22f;color:#28221c;text-align:center;padding:86px 0}
+.cafe-final-cta .cafe-overline{color:#664121}
+.cafe-final-cta h2{max-width:790px;margin:20px auto 33px;font-size:clamp(2.4rem,4.7vw,4rem)}
+.cafe-final-cta h2 em{color:#7d3519}
+.cafe-final-cta .container>div{display:flex;justify-content:center;align-items:center;gap:35px;flex-wrap:wrap}
+.cafe-final-cta .cafe-pill-bright{background:#252321;color:#fff9ed}
+.cafe-final-cta .cafe-pill-bright:hover{background:#4b3324}
+.cafe-footer{background:#211f1d;border-top:1px solid #ffffff30;color:#fdf4e6;padding:65px 0 22px}
+.cafe-footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:50px}
+.cafe-footer-brand .cafe-footer-symbol{font-size:40px;color:#f6a32f;display:block;line-height:1}
+.cafe-footer-brand strong{font-family:'Playfair Display',serif;font-size:2rem;color:#fff4e2;display:block;margin-top:10px}
+.cafe-footer-brand strong em{color:#f2a12f}
+.cafe-footer-brand p{font-family:'Noto Serif Kannada',serif;color:#ffc87e;font-size:1rem}
+.cafe-footer-brand small{color:#b8aa9c}
+.cafe-footer-group{display:flex;flex-direction:column;gap:10px}
+.cafe-footer-group h2{font:800 .7rem 'Plus Jakarta Sans',sans-serif;letter-spacing:.2em;color:#ffb858;margin:5px 0 13px}
+.cafe-footer-group a{color:#d1c7bb;font-size:.83rem;transition:color .25s,transform .25s;width:fit-content}
+.cafe-footer-group a:hover{color:#ffb858;transform:translateX(3px)}
+.cafe-footer-bottom{margin-top:55px;border-top:1px solid #ffffff24;padding-top:19px;display:flex;justify-content:space-between;gap:17px;align-items:center;color:#b2a598;font-size:.68rem}
+.cafe-footer-bottom span[lang="kn"]{font-family:'Noto Serif Kannada',serif;color:#d9ac71;font-size:.85rem}
+/* Shared customer flows: calm cards, generous space, clear checkout and tracking. */
+.menu-layout{padding-top:72px;padding-bottom:110px}
+.menu-layout>div>h1{font-family:'Playfair Display','Noto Serif Kannada',serif;font-size:clamp(2.3rem,4vw,3.6rem)}
+.menu-filters{gap:10px;margin-top:30px}
+.chip{border:1px solid #d8c2a8;background:#fffaf4;color:#564334;padding:11px 16px;transition:background .25s,border-color .25s,color .25s}
+.chip:hover{border-color:#a64d1f}
+.chip.selected{background:#282522;color:#fff6e9;border-color:#282522}
+.search-label input{border-radius:5px;min-height:50px;background:#fffdfa}
+.menu-grid{gap:19px}
+.menu-grid .dish-card{border:1px solid #eadac8;border-radius:7px;box-shadow:0 7px 24px #24140c10;transition:transform .3s,box-shadow .3s}
+.menu-grid .dish-card:hover{transform:translateY(-5px);box-shadow:0 18px 38px #24140c24}
+.menu-grid .dish-image{height:175px}
+.menu-grid .dish-info{padding:17px}
+.menu-grid .dish-info h3{font-family:'Playfair Display',serif;font-size:1.12rem}
+.small-button,.button.primary{background:#292622;color:#fff7ec;border-radius:5px;transition:background .25s,transform .25s}
+.small-button:hover,.button.primary:hover{background:#b76025}
+.cart-card{border:1px solid #e8d6c0;background:#fffaf3;border-radius:7px;box-shadow:0 15px 45px #31221316}
+.cart-heading h2,.cart-card>h2{font-family:'Playfair Display',serif;font-size:1.5rem}
+.page-hero{background:radial-gradient(circle at 88% 40%,#8b471e75,transparent 45%),linear-gradient(120deg,#292523,#1f1d1b);padding:92px 0}
+.page-hero .eyebrow{color:#f1b566}
+.page-hero h1{font-family:'Playfair Display','Noto Serif Kannada',serif}
+.page-hero p{color:#d9c5b4}
+.form-panel{background:#fffcf7;border:1px solid #ecdbca;border-radius:7px;box-shadow:0 15px 36px #3625180c}
+.form-stack input:not([type=radio]):not([type=checkbox]),.form-stack textarea,.form-stack select{border-radius:5px}
+.checkout-page{padding-top:75px;padding-bottom:105px}
+.checkout-page>div>h1{font-family:'Playfair Display',serif}
+.reward-showcase{background:radial-gradient(circle at 89% 30%,#bd6d1b77,transparent 60%),linear-gradient(135deg,#302520,#6b3e21);border:2px solid #e5a344;border-radius:8px}
+.features div{background:#f5ece0;border-left:3px solid #eaa13f;border-radius:4px}
+.tracking-order-card,.track-recents{border-radius:7px!important;box-shadow:0 9px 27px #25140711}
+.story-art{border-radius:8px;background:radial-gradient(circle at 50% 50%,#bf7239,#342821);box-shadow:inset 0 0 60px #0005}
+@keyframes cafe-rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes cafe-photo-in{from{opacity:0;transform:translateY(24px) rotate(1.5deg) scale(.95)}to{opacity:1;transform:translateY(0) rotate(1.5deg) scale(1)}}
+@keyframes cafe-sway{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-10px) rotate(4deg)}}
+@keyframes cafe-orbit{to{transform:rotate(360deg)}}
+@keyframes cafe-steam-rise{0%,100%{opacity:.08;transform:translateY(23px) scale(.8)}50%{opacity:.6;transform:translateY(-25px) scale(1.2)}}
+@keyframes cafe-bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+@media(max-width:1110px){.cafe-nav-links{gap:11px;font-size:.7rem}.cafe-brand b{font-size:1.02rem}.cafe-cart-link{padding:10px}.cafe-hero-grid{gap:15px}.cafe-hero-art{height:510px}.cafe-hero-photo{height:460px}.cafe-category-card{height:345px}.cafe-category-copy strong{font-size:1.42rem}}
+@media(max-width:890px){.cafe-nav{min-height:76px;flex-wrap:nowrap;padding:0}.cafe-nav-toggle{display:flex;flex-direction:column;gap:5px;margin-left:auto;background:transparent;border:1px solid #ffffff55;border-radius:5px;padding:11px;color:#fff}.cafe-nav-toggle span{display:block;width:22px;height:2px;background:#f9bd6e}.cafe-nav-links{display:none;position:absolute;top:100%;left:0;right:0;z-index:25;background:#292522;box-shadow:0 15px 29px #0004;padding:20px;flex-direction:column;align-items:stretch;gap:3px;border-top:1px solid #ffffff26;font-size:.87rem}.cafe-nav-links.is-open{display:flex}.cafe-nav-links a{padding:12px 14px;border-bottom:1px solid #ffffff10}.cafe-nav-links a[aria-current="page"]::after{left:14px;right:auto;width:38px}.cafe-cart-link{order:0}.cafe-hero-grid{min-height:650px;grid-template-columns:1fr 1fr;padding:60px 0}.cafe-hero h1{font-size:clamp(2.7rem,5vw,4.5rem)}.cafe-hero-photo{height:400px}.cafe-hero-art{height:470px}.cafe-category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.cafe-category-card{height:370px}.cafe-preparing-steps{grid-template-columns:1fr 1fr}.cafe-preparing-step:last-child{grid-column:1/-1}.cafe-family-grid{gap:30px}.cafe-family-stamp strong{font-size:1.5rem}}
+@media(max-width:700px){.preview-flag{font-size:.55rem;letter-spacing:.1em}.cafe-brand b{font-size:.95rem}.cafe-brand small{font-size:.62rem}.cafe-brand-emblem{width:38px;height:38px;font-size:23px}.cafe-nav{min-height:69px}.cafe-cart-link{font-size:.72rem;padding:9px}.cafe-cart-link .count{font-size:.67rem}.cafe-hero-grid{grid-template-columns:1fr;gap:5px;min-height:0;padding:52px 0 78px}.cafe-hero-content{max-width:none}.cafe-hero h1{font-size:clamp(2.55rem,9vw,4rem);line-height:1.45}.cafe-hero-description{font-size:.91rem;line-height:1.8}.cafe-hero-actions{margin:25px 0 26px;gap:10px}.cafe-pill{padding:13px 17px;font-size:.78rem;gap:12px}.cafe-hero-footnote{font-size:.75rem}.cafe-hero-art{height:430px;margin-top:25px}.cafe-hero-photo{width:min(82%,350px);height:390px;border-width:6px}.cafe-hero-floating-note{left:0;bottom:31px;max-width:203px;padding:9px 12px}.cafe-hero-spice.cafe-spice-one{font-size:50px;right:2%}.cafe-hero-spice.cafe-spice-two{font-size:35px}.cafe-scroll-nudge{font-size:.55rem;white-space:nowrap}.cafe-love-strip .container{gap:8px 15px;padding:12px 0}.cafe-love-strip span{font-size:.59rem}.cafe-love-strip span[lang="kn"]{font-size:.73rem}.cafe-section-top{display:block;margin-bottom:25px}.cafe-section-top h2{font-size:clamp(2.1rem,7vw,3rem)}.cafe-section-top>p{margin-top:14px;max-width:100%}.cafe-categories,.cafe-specials,.cafe-preparation{padding:65px 0}.cafe-category-grid{gap:12px}.cafe-category-card{height:290px}.cafe-category-copy{left:12px;right:12px;bottom:13px}.cafe-category-copy strong{font-size:1.2rem}.cafe-category-copy small{font-size:.87rem}.cafe-category-copy>span:not(.cafe-category-explore){font-size:.68rem}.cafe-category-index{left:13px;top:12px}.cafe-category-explore{font-size:.55rem;margin-top:6px}.cafe-manifesto{padding:70px 0}.cafe-manifesto-grid{grid-template-columns:1fr;gap:45px}.cafe-manifesto-seal{width:195px;box-shadow:0 0 0 12px #d78d2912,0 0 0 23px #d78d2910}.cafe-manifesto-seal>span{font-size:3rem}.cafe-manifesto-seal strong{font-size:.9rem}.cafe-manifesto h2,.cafe-family-section h2,.cafe-final-cta h2{font-size:clamp(2.5rem,8vw,3.5rem)}.cafe-specials-grid,.cafe-preparing-steps{grid-template-columns:1fr;gap:15px}.cafe-preparing-step:last-child{grid-column:auto}.cafe-special-image .dish-image{height:240px}.cafe-special-info{min-height:0}.cafe-family-section{padding:74px 0}.cafe-family-grid{grid-template-columns:1fr;gap:55px}.cafe-family-stamp{width:220px}.cafe-final-cta{padding:65px 0}.cafe-footer{padding:47px 0 22px}.cafe-footer-top{grid-template-columns:1fr 1fr;gap:35px 22px}.cafe-footer-brand{grid-column:1/-1}.cafe-footer-bottom{display:grid;gap:10px;margin-top:40px}.menu-layout{padding-top:43px}.menu-grid{gap:12px}.menu-grid .dish-image{height:130px}.menu-grid .dish-info{padding:12px}.checkout-page{padding-top:43px}}
+@media(max-width:390px){.cafe-brand-emblem{display:none}.cafe-brand b{font-size:.88rem}.cafe-cart-link{padding:8px;font-size:.68rem}.cafe-hero h1{font-size:2.3rem}.cafe-category-grid{grid-template-columns:1fr}.cafe-category-card{height:245px}.cafe-category-copy strong{font-size:1.5rem}.cafe-category-copy>span:not(.cafe-category-explore){font-size:.75rem}}
+@media(prefers-reduced-motion:reduce){.cafe-main *, .cafe-main *::before, .cafe-main *::after,.cafe-site-header *, .cafe-footer *{animation:none!important;transition:none!important;scroll-behavior:auto!important}.cafe-hero-photo{transform:none}.cafe-family-stamp{transform:none}}
