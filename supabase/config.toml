@@ -1,0 +1,2 @@
+[functions.razorpay-test-webhook]
+verify_jwt = false
