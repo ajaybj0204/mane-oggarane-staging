@@ -1,0 +1,3 @@
+import {serviceDb,userFromRequest} from '../../../../lib/supabase';import {respond,fail} from '../../../../lib/api';
+export const dynamic='force-dynamic';
+export async function GET(req:Request){try{const u=await userFromRequest(req);if(!u)return fail('Sign in first',401);const {data,error}=await serviceDb().from('orders').select('id,tracking_token,status,payment_status,total_paise,created_at,fulfillment_type,order_items(name,quantity)').eq('customer_id',u.id).order('created_at',{ascending:false}).limit(50);if(error)throw error;return respond({orders:data})}catch{return fail('Orders unavailable',503)}}

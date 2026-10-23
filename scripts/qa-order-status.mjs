@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';import fs from 'node:fs';import ts from 'typescript';
+const src=fs.readFileSync(new URL('../lib/order-status.ts',import.meta.url),'utf8');
+const js=ts.transpileModule(src,{compilerOptions:{module:ts.ModuleKind.ESNext,target:ts.ScriptTarget.ES2022}}).outputText;
+const mod=await import(`data:text/javascript;base64,${Buffer.from(js).toString('base64')}`);
+assert.deepEqual(mod.stepsFor('pickup'),['placed','accepted','preparing','ready','delivered']);
+assert.deepEqual(mod.stepsFor('delivery'),['placed','accepted','preparing','ready','out_for_delivery','delivered']);
+assert.deepEqual(mod.nextStatuses('ready','pickup'),['delivered','cancelled']);
+assert.deepEqual(mod.nextStatuses('ready','delivery'),['out_for_delivery','cancelled']);
+assert.deepEqual(mod.nextStatuses('delivered','delivery'),[]);
+assert.equal(mod.statusProgress('delivered','delivery'),100);
+assert.equal(mod.statusProgress('placed','pickup'),0);
+assert.equal(mod.statusProgress('out_for_delivery','delivery'),80);
+console.log('8/8 order status behavior assertions passed');

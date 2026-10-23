@@ -1,0 +1,290 @@
+[
+  {
+    "id": "v1",
+    "name": "Davangere Benne Dosa",
+    "price": 145,
+    "category": "veg",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCAI9sa4Bpsruz1HEZzdYeIQ7dQ7yvcZKlspbC8PMvON3wqwt3qepyZ-GW1oR0UonRQCx-OeqtE3oVrBooYPe0--9UXxZg0I9S2IeC23jKA4IBKhGSOp2Ri965gtDGMtmHnqH5JFidRUtFdo4rcO_B9L3BgmGtyWIJK1-DzBpQ1EcT0a_TmSkRp9ukh3Ny8ScaE_9eGcS_Z-WdtacC-65tbHFwSm5Zjix2AdSX88nMpSLLSFma7V-cCMQ",
+    "active": true,
+    "veg": true
+  },
+  {
+    "id": "v2",
+    "name": "Mysore Masala Dosa",
+    "price": 130,
+    "category": "veg",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuA-rDKjfIMaYBKxSE1AvD_LuF202xqX3Xj4C3PYxntNOCaUGaGfI7_07f49PH18dQ9Hk7Ei1cizbWmLWCFKxqpZ7UlXoBPEdG8E5qWaz5tGLQIrHNLoCl06rDEusd0ZtlOK92wKWdjgdDLRYNSHuFSGKH_ZKMRhmvSkiY8VUuAKYM5WEGzdIFrRpApCKzshA7r3gktGZKqYX-i__ueQAkoFp7IZk6Cr0w0KjvP9kYHMELpmZfMzsTTcZQ",
+    "active": true,
+    "veg": true
+  },
+  {
+    "id": "v3",
+    "name": "Thatte Idli & Crispy Vada",
+    "price": 110,
+    "category": "veg",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuA9pWmFwAJeZ46vNuSv2Jr3bAUDQDSIozVT1RgGcbgYU2T5qU49v1sBKEuMx_7yq1SRmJIuuA1JmlzbvGF00Ir3JGrDJmzQiRv_Qr39LBKV634U2eCQEz9JXzVXfiW4fta1Xn0ZWPs-BUuernBemjZOHuQXBKPO2VGvSTUq0UN7rUobuk1s4Lysic2WADRUCfs7TJnVgnXnPMhgehBxhYLKVcNQ1dipLxXrS3m_qItAqjL7dg-L25mNSQ",
+    "active": true,
+    "veg": true
+  },
+  {
+    "id": "v4",
+    "name": "Royal Veg Dum Biryani",
+    "price": 260,
+    "category": "veg",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAIcyRbKKy3rMmwtcGajnw4Y11pbQW5mNignpsNaoFEum0NJklDWylh6tMyLXyyToMqM19SV6kFllQezeFjz8L8rlIUMjbp4tJZoekJhi4DHNy1X30wrMmeYNMVnbukbbT2eHih-AxUm_YoC2x6jpva0iafpeOq3gPzolZtzsxZCi6RVVGwSYzcCQkxZK2mKb5IShjVxNhir9BUIccmm0WjqSrqzy6gTlVuPQBG_L0ZFUBhL5vZqyWSzg",
+    "active": true,
+    "veg": true
+  },
+  {
+    "id": "v5",
+    "name": "Paneer Ghee Roast",
+    "price": 295,
+    "category": "veg",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuD0gf2M-8ItQag_SDWCMqqSZXmbx1-RgOW0k3F99J9GuBv6hOunEXGfSlYX91OF3hPjyyQBzIzjIpzURL-unDUstRcfmnXiiobt3-Vip8uSL1sE9h2-ikSpTnpZk3IiYJ2ycp_wC9IVtgIS4XtWn8avZKYTqr69f4mq1n0PCNn_7tkp-2X32gK9DxsJWMAiCWzraRpqMzvp63jx0htOolcuiFEqYyDyAY-4rnTwl7aFXDUmAXdZM4c97w",
+    "active": true,
+    "veg": true
+  },
+  {
+    "id": "v6",
+    "name": "Karnataka Oota Meals",
+    "price": 220,
+    "category": "veg",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuATsA_jlZ4jXi0s7WpHHD6YHhiodPpzcABaeNEC4mX9sz9KUtXR9cG20qsa0-3P0U7UiMl5eJLOMJkefBllQ9GyTRnT-xShMJYnHvr_j9BOvNnuI79QGAmYfvScjgCgoKxOAsuO0zIFWY3t4hc7NLdLNxdJ32y4ar5zkk_PjQ4ccQtnfnMU4YNafqjknipEW0jMxp5DlFek7Prr1vPsIUZMO7yBmo3nOW3Mn6G8Dmft6FlyrqBa7mi8nw",
+    "active": true,
+    "veg": true
+  },
+  {
+    "id": "v7",
+    "name": "Gobi Kempu",
+    "price": 190,
+    "category": "veg",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCH541fF-HHBnJyB1PMsXrakdWOrIftMBnfSKjhdNtrX7s8nzwIF5Rr1JkDYpp-mxnpIDeNC-XqVULqVtHUlViAdm4og4T8GNvsRXhm277N1biqhrKlq0hTGer9PhwJ-Lz7ryvXiJXSf05Lm0pwnzbhyrxYKOkbJUWyISZmlXJ7WXSWIu8IWnSKMdcBUuYjLAlgO_7GatllgYNH5dCLYHnzS3zHsYo-P1CthyooKk0_3ErhTgZBav2K3Q",
+    "active": true,
+    "veg": true
+  },
+  {
+    "id": "v8",
+    "name": "Veg Pulao",
+    "price": 180,
+    "category": "veg",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuDKynQJO_OFU3e_DoQ_u2L4d2l-60L_Fdb6cgEf2MNVYWXl8waMvF7BFANHd4V05Rs8nbKYPTejkiz_k30EWXXYnEx2GE1EioZ1KY-RqdhucVWdE98PGSVe9WhOZopVSSwEmkp0nEvMir0BkhHF9uHH9fqzO7S3axj-l4C8uw-eehNvWgOP5glk7G27wvO7MP9RJlJncQXmJbJPaBTknoILrrrtdcqd2QJ8Y3SQ6UerzfRNoOtygIulJA",
+    "active": true,
+    "veg": true
+  },
+  {
+    "id": "nv1",
+    "name": "Donne Biryani",
+    "price": 290,
+    "category": "nonveg",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBr0iyGoIqLI3x2niCwVA_NYdrgHvZ8IgJN5-J5wxZSsitM-DOiTj2GWueDY3LpN1AmBcwuJt0EG94Kf1gYnaCyD4xx8hfZtAjV8B-0Xsrk3fqm2izBInvzJOgF7TdlR-cgykqD9fOhnKby-8VCS0OEBY5HyJ1-CGlhqrH5LLnfoirMeJ0IVLuKWm_OHG4kTcpZ0cJfdDWok4nD7RfGohtXfbkO2VRA8pqogvLw9FENlSP80v2o5GTOMg",
+    "active": true,
+    "veg": false
+  },
+  {
+    "id": "nv2",
+    "name": "Ambur Chicken Biryani",
+    "price": 310,
+    "category": "nonveg",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCggW3mekj_ZwA1VEB81mR3l3R_meq7VfNWpN2udiWbPQntpw-0qtf1d-rdNRzBTeDnwJDz6StQ77MrS7Pk1M_uqNxq-WcBl0R7m5e45WDpKSIXsmMrlDLaAun6CdVTwLBzg_B7LYM-FTp88Yez_gJt7-ak_XrcsggyErDuzYBK84PlU1ZJQLF4yGN1K8doKD_fkn7rJuB9Rwch_QXG5rWYZJcEna146fEQ2BZVEatlbGSKGJ8ys3VVTQ",
+    "active": true,
+    "veg": false
+  },
+  {
+    "id": "nv3",
+    "name": "Nati Koli Saaru",
+    "price": 330,
+    "category": "nonveg",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBluiCy2fSint29pqGhWVAIMrHzXN7IERiTUdRZGps4jkzEivTm_nOeVs9ZIPhvLSc9WPdACQseG48Jf-QTM8poCwckBd1HzSKj5WgwgE9sUnZSS1HGOmGa_csx0E1daWj664R69S6l7xu52Dn0d98Z13WL2fCcBWT3yVy-72BfX2AVK6e1SV4XuUxf9LlSWEpkpKnn5X_6gq57KKLRJsos63kqK2MQ1ZP37sT23lSJhLfmRnSRThDgfw",
+    "active": true,
+    "veg": false
+  },
+  {
+    "id": "nv4",
+    "name": "Kundapura Chicken Curry",
+    "price": 280,
+    "category": "nonveg",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuDApz9zbVNhwtlLZWBZLMyPbf2gzsHh3KJHqYjYm6oy3lMB2zRh6VH2jJFImevXr1GAYwx4is4Pc7z14BJXFlZMmNes4SuBaCKNwrBNveA_YcrbQM1I66wBR_WiIQCHqKTfAc6Ib0eCMCFDJ1Mj9VXK8T5T8TCpIjhMD-qYO9x-KU8pbqacNlrauv3LO7UzSvIL4DDnNEroopcfxc0mGtRIfV0sKH8co-gVIuLhC0VN5JXjLvrRQKfQKA",
+    "active": true,
+    "veg": false
+  },
+  {
+    "id": "nv5",
+    "name": "Chicken Kebab 65",
+    "price": 240,
+    "category": "nonveg",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAqZY-xvm1PjM_3Ehq66gNUaaZS4Mr_PwMHhTuAZeApdaQD-JkVo6_mR31bYNOBzTfojwFoE4dxtu1mbZnIZBHmPJoAnDZEqHlYzzLJJoEEjDyJ_nOIuUCpGmUYr8VTVs-1m_LnyNkTLdpGwheMmqfEMCyPjxBAZBE0_gJ-FgdWIU8GnX_JtROOPcapbzWmkj-rSk9wLtf9rPmeX39Dnxc96XOPuiukTOPj3QIsqSz91haUleAj4arIyQ",
+    "active": true,
+    "veg": false
+  },
+  {
+    "id": "nv6",
+    "name": "Mutton Sukka",
+    "price": 380,
+    "category": "nonveg",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBUgNq90sxdGBfs4uVz3t_AfRfJAKej8D1ToMBw8BioWGOQRjknELbB63yWU4WKY8Y9hM3HUqhjrsL4jXtF0ngIaQgZwWWr8MkKkXYqiF7aqK5hiNL9V1WS3dmtwkweYdDAG1hz4BBVbBBWdWn1vQVzw5GxSo9gT8gZqQPvtyk1rFAl9azCCWXxzakoySWKPtF8ZUetEVqEHj5SRKItn-aZDhp3_4-pgJZOy4cTqTPUJjYmZ4ou0nQgZg",
+    "active": true,
+    "veg": false
+  },
+  {
+    "id": "nv7",
+    "name": "Fish Fry",
+    "price": 340,
+    "category": "nonveg",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCFCgA0i5fDQMl2af4-pyr-TKD2r5Evxz_530G3l9lS4sdvkOBCdN1YSQoJbqsrQlaFkzWcfgE8O8S3fHaSXBcA6AEEmYN_N8mkHtWOSSgp4YJbcHC_5eZt94ehwwejAnMr0P1bufgiC8ogcOT0vPlaeCWc6gh24WB0EvL8UrZC9x8s2q9DwoPbQBJpx4mBHUaMa8tJDMGJhIWhacuq48TjiBwaB8lRCunoGsW7BhiJNobWqdcL7t4G5Q",
+    "active": true,
+    "veg": false
+  },
+  {
+    "id": "nv8",
+    "name": "Egg Masala Roast",
+    "price": 170,
+    "category": "nonveg",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCe-xwOeuml-pfd6H-WJHA6dnPYdJ5jRWJS52_xa_NgMUQUFaR9iUHoJYcuEmS2BSEjGethA7ReRFFYWfeJBuHd1ABDwQ6lExFhoyn9htb-0lfs6qiAj45utHnf0EU9i6p-MbALIJlyViZaIVHHc6sFzk2q7czc3YLih5proTKEmC4IkRl_Wcnen0LRULYZOVnhvctKRCYTiVsaJ6R4FmkIWDkygXS8JEf1QamYMpqCViYVN6UD-JUHvw",
+    "active": true,
+    "veg": false
+  },
+  {
+    "id": "c1",
+    "name": "Banana Leaf Thali",
+    "price": 340,
+    "category": "combos",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuA1V5IT2gdHCWuUDkX2EKbN-BeZzlZzI6_taNQSBc7UVIwIvjanvTJOUlNkvM9CLg-c3P6WZgGJ7jMr9gFEvqci7uUPsOJSzbn9-BfXk4Pz3-QVS5i4cwQRS6CmSBL91VSQpU8L52LVl7dnXGGunArw82ZxAzDgpsiPPEQFHMWuU5E-X_zZMsFxSOXLIL-3Sbscv7ebBRbRPZKxMmftMrfLB7jKHNTBdeVQtpd4JkyUDLJevmY3genGzg",
+    "active": true,
+    "veg": true
+  },
+  {
+    "id": "c2",
+    "name": "Maharaja Non-Veg Combo",
+    "price": 490,
+    "category": "combos",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuD6FWwW6yPyf8ehOR-5dmO6o6SrH1y5h7ed0nqtcUlKHhOAE_eEtDEGcINsGwoMs0383fZOletR_73AauGuv9HTUzm-kTxNhPXusm_mhnMlQ6aUYZ6lFKH4jbKQ4WhdAoV23QLCTbmJ0rHX-vW1UWrB3uz1N-Ae2icH3k6h-3jKxemvZvmKmYUAZMtUuZXbYK5xcl6amVjkk-A-aXoDJpbY5S1UQT5dW_SQ6Ioz-bKfEPkbkzXA00ItOg",
+    "active": true,
+    "veg": false
+  },
+  {
+    "id": "c3",
+    "name": "Tiffin Box Combo",
+    "price": 210,
+    "category": "combos",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAq7xgT0Fjo8hsHyk9-xEX1xbIVTwQ7Pnea0PwSZhfRy8dHG_obS0RUKPf43MIu6Ucwg513Gq7ctsIw-op_gdRNGYYJbS2kDrz4R8CfroQtps0OLTSjg7X4CgeodZB7uxVkVlU43nz800ae8QfrKGR0DpApFvm0zOGuJHgmbPShuxBzPi4MWZ27TgXvNvoHaJVVxqtkWwjRhSi_ERrYvOZZm4QZNveP4KQZAHt2xtmBnYhQeRy29Q9ryQ",
+    "active": true,
+    "veg": true
+  },
+  {
+    "id": "c4",
+    "name": "Weekend Biryani Feast",
+    "price": 999,
+    "category": "combos",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAjfLgGjoUlwtBb0KmW9yW_ag69f_2l10i_qgvDnb6TxEs3womjxQVvmSbZ9JwcDWE29bbqll-lENfFO8H7SX6IUMCPOmMSn25ZbqX92JwHuqqFFjI0I3LYqx5uTg9p2sLxgUGmr-P04DJm3W-cAmgzypx3MEavfANOk5_VuQGBCa9M8CnYdNCo1Ek94GQghclM3l1vY7b_1eL08YJ-_meSrU1cfVT40yE5nToaKfelQXGi9gSCXjFSLw",
+    "active": true,
+    "veg": false
+  },
+  {
+    "id": "c5",
+    "name": "Curd Rice & Roast",
+    "price": 230,
+    "category": "combos",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBrOias3dEm_u5VfayixxINXlni-Va-0eEYKh1YwxKch2Wdon8SIRPJhSiI-82mZc2Lvmmv18vC7xHCbNMq3FX7G85NPAambB_cxrbuf6oDtdnIrPdHHq2T0D9lNXzE_J8_q9JfBXwRJuM7N9Pjbf7J1OVZcEpsmvHX2hNtO38Q9xJ4vLKrp2slFkgy9qQ0TMPl1hqnRKEdmCrIEUX9x4QczgZGnKqKWW_QA6xMHmRmzcIDV8IwAfvdwA",
+    "active": true,
+    "veg": true
+  },
+  {
+    "id": "c6",
+    "name": "Breakfast Box",
+    "price": 275,
+    "category": "combos",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcfqWSWXsEkPbRYuRRgdRWYuJn3AdZyc6e3mtFthZOZu-SWSBgBbk2YYzl-DKjIf_HmbIHkhdD7ae28fotSUZwwZD7enNsUo3AxTKttqnHp5tF07aQL4LwAu3i8JYL_Powz3eOhwSjIR8e9gyUMcqZEVFb7jNr7Gh5Zp9r8a0zJWBA_qSUPFfcb1-y5gXyQgcuzVDKH_KNpNSrhvKCjttHOJCtFMv8koL-s25w75pevci99XB5FLaSXw",
+    "active": true,
+    "veg": true
+  },
+  {
+    "id": "s1",
+    "name": "Filter Kaapi",
+    "price": 60,
+    "category": "cafe",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAbBYaTDJxYhR0D59UXb3UP4X6LWlooMaI6NY5LUNP5ygzirS9NW-_bA_3mhy2e6oSDb9JP9Vn9VEHIYH1c3G6MkZxS_L-d9E0ENbhoi2Q0gQG1D5joeWeUJn3-Zl-fI3DGK4L_YBkI19JuxFYtonPGnfHARrjA_LW8BFh-HGEqAuOH4_60zNGPjErEN1D3kuYJE69PrZwEZKQ1kmlQuISQyxiNnnOOsfnm_T48M4-ZrbE7DJ4FTvTh5g",
+    "active": true,
+    "veg": true
+  },
+  {
+    "id": "s2",
+    "name": "Masala Puri",
+    "price": 85,
+    "category": "cafe",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBjALo8esSxW4LyqBdmTlF_iHWYw4LkD0-Rsn6rA0WGLVC5LG2pzf28ujSEJ08Adnvi1--8t8pzbWnStrcWoRcx7QPl_G13wacWCnB9k9n0UvJpgeSABTumSRooC6cd4SAXQyQlYgLPaPZq_yDJaqZ5ELRXz7ICShTEYUKGo5O1qM_tHLR5eD-rGqemPlZiwxbAwncDL074xrQilrNDQDWglIp62gYbiq_L4QgrNr1syWu5rAAQuAqR6Q",
+    "active": true,
+    "veg": true
+  },
+  {
+    "id": "s3",
+    "name": "Pani Puri",
+    "price": 80,
+    "category": "cafe",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBqOCBtMk1EBPTmewLgNDRRtAlxwM6Q5VoSQoPBfhmRhWg3kvA6BwJ0C0glInhPPuN6-0gvsbsErdJ5ZuVQYfTdsES9lq7UEmgTVYLnWsLWVlTruLmRf_I2gUxef0p8jjh8_-foDVQJ6CnP6gYO4SnxXgQID58HChMLjhjJCeBryESROQN9bIWt8uHXCl5u72ko2Rlr6qNobTYcwTcyEvud-BF7nxSd2GzC6Wk6OJZQnfBmA_-QGm0BeQ",
+    "active": true,
+    "veg": true
+  },
+  {
+    "id": "s4",
+    "name": "Bhel Puri",
+    "price": 75,
+    "category": "cafe",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCfjOksOVXNJyYgpKqBK6FhT-9lpj4Zarm0D9BLWS3k8wMxrXpJbo1WctwAJMo5t-pNcDF6vzxxGoEqdIgARWmCyhsbCqN1dES6WSbtVUlalL_4ifV3B5M7JPR0JoT1fepS4jnHmEQ7m7cy0vlFTvmnF1eak4cQzaKrcHU1oKK-GuWdatMTCWa7tm4gVjiZGVa9BBtd0hZH0yjdqshfuGwxJ5XVni41Gj1i9ZLhju4nYxj8KF25NfVkTQ",
+    "active": true,
+    "veg": true
+  },
+  {
+    "id": "s5",
+    "name": "Bun Maska & Jam",
+    "price": 90,
+    "category": "cafe",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuD5aPCsZqF3L8hQmzGUSf-Vbe1UtnRZt1nr0rno78x9UfstxkXrjmnE20WID1ygOr6tqqEbR1UjrgMYlaQsSKc2y3urzqEHJW-QtvawU0tAC3MEoaje_E-rItQkSn1VmpjNRnqgIDr8tk5tVOlDVVyJGwIeiLSunn8eiJPCuutfUO1jjsH8aYSk7e3yUubd-kLk1UTFQJ0YZAiURZgN9P-Jnl0BKo9sfPXVjRC36PM8fp_uhva3JrWmhg",
+    "active": true,
+    "veg": true
+  },
+  {
+    "id": "s6",
+    "name": "Maddur Vada",
+    "price": 70,
+    "category": "cafe",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBrsx96zUygTzTXIHk8Y_41EJKF0mSf_rjrYWe4zWWLKg-0X2ZqBmInqG__-Trj0taajCzrSX1Ozta5R5cDjb_Jmsb8cSeKzzqXUAzdRoDh2T7Nupe09fdo4OoB6S0LPsbQPCWfZ5YlCcumnE0hx9V2rZRmbfa5j5KIKljNuohRcKFg8xckzMH4L87aBEcRp5hBZBxEyjx5VosnHypZpUQsGN1W0qc5PZeMAbFYTvez7k5BFZ97wfgmLw",
+    "active": true,
+    "veg": true
+  },
+  {
+    "id": "s7",
+    "name": "Mysore Pak",
+    "price": 120,
+    "category": "cafe",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCSKhhujIAH_vVEdzIxDngfRu2DZNT0lS2C291Qvn5anQsfJhumAwKLfhW4oZqMr_51C-qzI0vGXZzuK3_zGTmP1ZBVlM27v-Ctu1JDPQK-2n8ikrp2fHSzHf0A4Uq21WuTIY0mYQRvpncv35HZHbK7BTIG7v83oNmv9pyxxzT4Q4yWXrr9RfhSz-pPID7g4q8CuqDYt3CA-HZf7oVnuDWphqDCjbv8wWNhQ7uUgTv0OknDTKj1zLLcqA",
+    "active": true,
+    "veg": true
+  },
+  {
+    "id": "s8",
+    "name": "Kesari Bath",
+    "price": 95,
+    "category": "cafe",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuB8OFR-pqeV3fKJG0nOqHscJZhTsLeceoDITb2UbQI2ctwatgVS1skEMNHAM8_FKKNrHtnsnqSQXG7CwvKyOmG4OQVsHwj4d50iKUghgwJ0ezV72ivmsWQI_F2rH6jLr9G8TTxpxsVv95ZBiZynWi5rCbZvjKUlV0QXKSYAqgxJRKe-7Q3AXEnEAKXDM202wCC9vhGQueSkv6fXSRK2MYtaOtS_SzJSz8PgwPUTkodTV0sqfxeec-_kFg",
+    "active": true,
+    "veg": true
+  },
+  {
+    "id": "s9",
+    "name": "Sugarcane Juice",
+    "price": 70,
+    "category": "cafe",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBUp7WU3GblMmwiOIW5vzP8dmrDvIsQTD3nPyKOZOfycgMdG8TOm4O9DpCp2qgsdrDy1fonFkBV9k9PUOk2LYQ87SScrtyADUTSRe57hPBXnDYtRIb0GBKriw8NeyZpZ9p6QcdM_SMWFPdra7tCm7_AGWgUmTwvwUOhbcL62Sfy4w1LMFvVR2TTAZsJyuPdWAhAaBlgT3tLEzI7uz_pZFkMMGS8rTMqvJAD9Er2EKcKpFEFtW1_LwahkQ",
+    "active": true,
+    "veg": true
+  },
+  {
+    "id": "s10",
+    "name": "Cold Badam Milk",
+    "price": 85,
+    "category": "cafe",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuDCrsHsu8bNl4vA5FDk2ify6N1Ji3HWgBPf8VZ8IzZxrpcQUscbVVcl4FRuJYDy732XDFKACZFqvFw7wp6m49ZkpLbeGguCD5HgeIZeZLm5Kx0mxmO_mkI6Qz7Ut1iZWnCZOcPnyQpojl4a698lE9t25roeDVbypDR2N204jRMPuIlwjQdPIBwbL1bd9ljlF9R9RGOwCIKs31x1AYBs9aQSt5dtZ6llrms81fVmmhD4zqhF05351K2Fbw",
+    "active": true,
+    "veg": true
+  }
+]
