@@ -3,13 +3,14 @@ import Link from 'next/link';
 import {useApp} from './AppProvider';
 import DishImage from './DishImage';
 import {rupees} from '../lib/types';
+import FlavorBackdrop from './ambient/FlavorBackdrop';
 
 export default function HomeSpecials(){
   const {menu,add}=useApp();
   const available=menu.filter(d=>d.active&&(d.stock_qty==null||d.stock_qty>0));
   const featured=available.filter(d=>d.featured).slice(0,3);
   const items=featured.length?featured:available.slice(0,3);
-  return <section className="section cafe-specials" id="signature-dishes"><div className="container">
+  return <section className="section cafe-specials flavor-section" id="signature-dishes"><FlavorBackdrop variant="spice"/><div className="container">
     <div className="cafe-section-top"><div><p className="cafe-overline">A LITTLE SOMETHING DELICIOUS</p><h2>From our kitchen, <em>with love.</em></h2></div><Link href="/menu" className="cafe-text-link">View the whole menu <span>↗</span></Link></div>
     <div className="cafe-specials-grid">{items.length?items.map((d,i)=><article className="cafe-special-card" key={d.id}>
       <div className="cafe-special-image"><DishImage url={d.image} name={d.name}/><span className="cafe-special-index">0{i+1} · KITCHEN FAVORITE</span></div>
