@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import {useApp} from './AppProvider';
+import FlavorBackdrop from './ambient/FlavorBackdrop';
 
 const stories=[
   {category:'veg',no:'01',kn:'ಬಿಸಿಬಿಸಿ ತವಾದ ಮೇಲೆ ರುಚಿಯ ಆರಂಭ',en:'The joy of a fresh start',desc:'A comforting breakfast, a familiar aroma, and a little happiness on the plate.'},
@@ -10,7 +11,7 @@ const stories=[
 
 export default function PreparationJourney(){
  const {menu}=useApp();
- return <section className="preparing-story cafe-preparation" id="preparation"><div className="container">
+ return <section className="preparing-story cafe-preparation flavor-section" id="preparation"><FlavorBackdrop variant="veg"/><div className="container">
    <div className="cafe-section-top"><div><p className="cafe-overline">STORIES FROM OUR KITCHEN</p><h2 lang="kn">ಅಡುಗೆ ಎಂದರೆ ಪ್ರೀತಿಯ ಅಭಿವ್ಯಕ್ತಿ.</h2></div><p>Every plate has a little story. Follow the familiar flavors that inspire our kitchen.</p></div>
    <div className="preparing-steps cafe-preparing-steps">{stories.map(s=>{
      const photo=menu.find(d=>d.category===s.category&&d.image&&d.active)?.image;
