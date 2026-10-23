@@ -4,8 +4,8 @@ export async function POST(req:Request){
  const raw=await req.text();const signature=req.headers.get('x-razorpay-signature')||'';
  if(!verifyWebhook(raw,signature))return fail('Invalid webhook signature',403);
  try{
-  const evt=JSON.parse(raw);const id=String(evt.id||'');const type=String(evt.event||'');
-  if(!id||id.length>120)return fail('Missing event id');const db=serviceDb();
+  const evt=JSON.parse(raw);const id=req.headers.get('x-razorpay-event-id')||'';const type=String(evt.event||'');
+  if(!id||id.length>120||!/^[a-zA-Z0-9_-]+$/.test(id))return fail('Missing or invalid Razorpay event id');const db=serviceDb();
   const {data:seen}=await db.from('payment_events').select('id').eq('id',id).maybeSingle();if(seen)return respond({ok:true,duplicate:true});
   if(type==='payment.captured'||type==='order.paid'){
    const payment=evt.payload?.payment?.entity;
