@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import {useApp} from './AppProvider';
 import type {Category} from '../lib/types';
+import FlavorBackdrop from './ambient/FlavorBackdrop';
 
 const galleries:[Category,string,string,string,string][]=[
   ['veg','ಸಸ್ಯಾಹಾರದ ಸವಿ','Vegetarian delights','Dosas, idli & everyday comforts','01'],
@@ -12,7 +13,7 @@ const galleries:[Category,string,string,string,string][]=[
 
 export default function CategoryGallery(){
   const {menu}=useApp();
-  return <section className="cafe-categories section" id="kitchens">
+  return <section className="cafe-categories section flavor-section" id="kitchens"><FlavorBackdrop variant="mixed"/>
     <div className="container">
       <div className="cafe-section-top"><div><p className="cafe-overline">EXPLORE THE FLAVORS</p><h2>There’s love in <em>every craving.</em></h2></div><p>From an everyday breakfast to a family feast, find your kind of comfort.</p></div>
       <div className="cafe-category-grid">
