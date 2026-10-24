@@ -6,8 +6,8 @@ import {rupees} from '../lib/types';
 import FlavorBackdrop from './ambient/FlavorBackdrop';
 
 export default function HomeSpecials(){
-  const {menu,add}=useApp();
-  const available=menu.filter(d=>d.active&&(d.stock_qty==null||d.stock_qty>0));
+  const {menu,add,foodPreference}=useApp();
+  const available=menu.filter(d=>d.active&&(d.stock_qty==null||d.stock_qty>0)&&(foodPreference==='both'||d.veg===(foodPreference==='veg')));
   const featured=available.filter(d=>d.featured).slice(0,3);
   const items=featured.length?featured:available.slice(0,3);
   return <section className="section cafe-specials flavor-section" id="signature-dishes"><FlavorBackdrop variant="spice"/><div className="container">
