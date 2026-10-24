@@ -7,7 +7,7 @@ export const dynamic='force-dynamic';
 export async function POST(req:Request){
  if(!stagingTransactionsAllowed())return fail(prelaunchMessage(),503);
  try {
-  if(!await withinRate(req,'checkout-quote',30,900))return fail('Too many pricing requests. Please try later.',429);
+  if(!await withinRate(req,'checkout',12,900))return fail('Too many pricing requests. Please try later.',429);
   const body=await jsonBody(req);if(!body)return fail('Invalid checkout request');
   const items=Array.isArray(body.items)?body.items:[];
   if(items.length<1||items.length>30)return fail('Invalid basket');
