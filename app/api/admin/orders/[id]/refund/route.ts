@@ -15,7 +15,7 @@ export async function POST(req:Request,{params}:Ctx){
   if(claimError){if(claimError.code==='23505')return fail('Refund already requested. Check Razorpay and your refund records; do not issue a second request.',409);throw claimError}
   try{
    const refund=await razorpay(`payments/${encodeURIComponent(order.razorpay_payment_id)}/refund`,'POST',{amount:order.total_paise,notes:{reason:'Merchant-initiated full refund',internal_order:id}});
-   const {error:requestUpdateError}=await db.from('refund_requests').update({provider_refund_id:refund.id,status:'requested',updated_at:new Date().toISOString()}).eq('order_id',id);if(requestUpdateError)throw requestUpdateError;
+   const {error:requestUpdateError}=await db.from('refund_requests').update({provider_refund_id:refund.id,status:'requested',updated_at:new Date().toISOString()}).eq('order_id',id).in('status',['initiated','requested']);if(requestUpdateError)throw requestUpdateError;
    const {error:orderUpdateError}=await db.from('orders').update({refund_id:refund.id,updated_at:new Date().toISOString()}).eq('id',id);if(orderUpdateError)throw orderUpdateError;
    await db.from('audit_log').insert({actor_id:actor.id,action:'order.refund.requested',object_id:id});
    return respond({refundId:refund.id,status:refund.status,message:'Refund requested; await and verify signed provider confirmation.'});
