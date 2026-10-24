@@ -1,0 +1,5 @@
+import {serviceDb,userFromRequest} from '../../../../lib/supabase';
+import {respond,fail,jsonBody,text,clampInt} from '../../../../lib/api';
+export const dynamic='force-dynamic';
+export async function GET(req:Request){try{const user=await userFromRequest(req);if(!user)return fail('Sign in first',401);const {data,error}=await serviceDb().from('customer_feedback').select('id,message,rating,created_at').eq('customer_id',user.id).order('created_at',{ascending:false}).limit(30);if(error)throw error;return respond({feedback:data})}catch{return fail('Feedback unavailable',503)}}
+export async function POST(req:Request){try{const user=await userFromRequest(req);if(!user)return fail('Sign in first',401);const b=await jsonBody(req);const message=text(b?.message,1200),rating=b?.rating===null||b?.rating===undefined?null:clampInt(b.rating,1,5);if(message.length<5||b?.rating!==undefined&&b.rating!==null&&rating===null)return fail('Provide valid feedback and rating');const {error}=await serviceDb().from('customer_feedback').insert({customer_id:user.id,message,rating});if(error)throw error;return respond({ok:true},201)}catch{return fail('Could not send feedback',503)}}
