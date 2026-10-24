@@ -12,13 +12,13 @@ const galleries:[Category,string,string,string,string][]=[
 ];
 
 export default function CategoryGallery(){
-  const {menu}=useApp();
+  const {menu,foodPreference}=useApp();
   return <section className="cafe-categories section flavor-section" id="kitchens"><FlavorBackdrop variant="mixed"/>
     <div className="container">
       <div className="cafe-section-top"><div><p className="cafe-overline">EXPLORE THE FLAVORS</p><h2>There’s love in <em>every craving.</em></h2></div><p>From an everyday breakfast to a family feast, find your kind of comfort.</p></div>
       <div className="cafe-category-grid">
-        {galleries.map(([id,kn,en,desc,no])=>{
-          const photo=menu.find(d=>d.category===id&&d.image&&d.active)?.image;
+        {galleries.filter(([id])=>menu.some(d=>d.category===id&&d.active&&(foodPreference==='both'||d.veg===(foodPreference==='veg')))).map(([id,kn,en,desc,no])=>{
+          const photo=menu.find(d=>d.category===id&&d.image&&d.active&&(foodPreference==='both'||d.veg===(foodPreference==='veg')))?.image;
           return <Link className={'cafe-category-card cafe-category-'+id} key={id} href={'/menu?category='+id}>
             {photo?<img loading="lazy" src={photo} alt="" referrerPolicy="no-referrer"/>:<div className="cafe-category-fallback" aria-hidden="true">✳</div>}
             <span className="cafe-category-mask"/>
