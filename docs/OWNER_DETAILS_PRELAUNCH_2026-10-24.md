@@ -14,9 +14,15 @@
 - Owner reports **business policies approved**, but exact approved refund/cancellation, privacy, grievance and retention **wording/documents** were not supplied. `/policies` accurately labels existing content as placeholders; do NOT claim approved policy text is published.
 - Owner reports **FSSAI approved** and Razorpay Live KYC approved; exact licence number, registered legal entity, applicability to online food sales and Razorpay activation of the intended website/domain were not independently validated.
 
-## Critical domain clarification
+## Existing e-commerce domain and proposed test subdomain
 
-Owner wrote **Explorexdeals** as the owned domain. This is a **label, not an actionable fully qualified domain name**. Exact suffix such as `.com` or `.in`, domain registrant control and whether it is intended as the restaurant's public identity must be confirmed. **Do not infer, invent, purchase or configure DNS** from this incomplete hostname.
+Owner clarified they own **explorexdeals.com**, currently associated with an ExploreXdeals **e-commerce store**. A public read-only check of **www.explorexdeals.com** on 24 October 2026 showed an ExploreXdeals storefront with “Powered by Shopify”, product cards, shopping cart and e-commerce policies. Owner reports that the store is not currently being used, but it is still present on the public web.
+
+**DO NOT assign either explorexdeals.com (apex) or www.explorexdeals.com to the restaurant project, change Shopify domain settings, swap nameservers or modify existing A/CNAME/MX records.** Preserve the e-commerce site's future reopening and existing email routing.
+
+**Proposed, not approved/connected:** `mane.explorexdeals.com`, a standalone restaurant *test/prelaunch subdomain*. Another available label could be chosen before DNS changes. A later independently hosted restaurant test deployment can be assigned that full subdomain in its hosting dashboard; obtain the project-specific **CNAME target** from the host, then add only the `mane` DNS record at the domain's current DNS provider after checking for conflicts. HTTPS/TLS verification and site protection need to be checked. No guessed CNAME values, DNS change, project binding, live gateway or commercial-launch claim are part of this draft PR.
+
+**Testing limitation:** Keep the subdomain access-restricted for noncommercial QA, or serve a truthful prelaunch page with checkout and account registration disabled in an appropriately permitted hosting environment. For an actual restaurant launch, ensure branding/legal identity and Razorpay Live website/domain verification match the restaurant; a separate Mane & Oggarane-branded domain may ultimately be better.
 
 ## Source changes (only active when NEXT_PUBLIC_SITE_PHASE=prelaunch)
 
@@ -30,7 +36,7 @@ Owner wrote **Explorexdeals** as the owned domain. This is a **label, not an act
 
 ## Strict launch gates — no payments or public cutover
 
-1. Confirm exact **hostname including TLD** and owner control; approve its use for this restaurant. Check domain/website approvals in Razorpay Live and identity-consistent branding.
+1. Approve the **proposed testing subdomain** and current registrar/DNS provider, confirm `mane` label has no conflicting record, and preserve the root/www Shopify store. For a real commercial launch, verify the final chosen domain against Razorpay Live and restaurant legal branding.
 2. Obtain the **actual approved policy text** (refund/cancellation timing, privacy, data retention, consumer grievance contact, returns, food issues) and FSSAI disclosure details. Do not invent approved language.
 3. Confirm operating hours every day including holidays/closing dates, support arrangements, and pickup readiness, staff, lead times. FSSAI and Razorpay status are user-reported.
 4. Review all **32** dish prices (₹), availability, actual descriptions, allergens, photographs/usage licences and tax handling; only then authorize an import into a separate production database.
