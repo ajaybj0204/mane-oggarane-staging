@@ -12,7 +12,7 @@ Next.js 15 App Router, React 19, TypeScript, Supabase Auth/Postgres, Razorpay Te
 - Source regression assertions added; Vercel builds must be checked before merging.
 
 ## Not yet implemented or externally configured
-- SMS OTP: Supabase phone auth requires a real provider, phone verification and rate-limit testing. Do not fabricate SMS success.
+- SMS OTP: the browser now supports requesting/verifying real Supabase SMS OTPs; **not operational until SMS provider is configured** in Supabase and callback/abuse tests pass. Do not fabricate SMS success.
 - Google OAuth: enable Google provider, configure credentials and allowed redirect URLs, then test callback.
 - Promotions and offer pricing: existing coupons apply at checkout but do **not** implement product-specific original/offer prices. Do not advertise a sample '50% off Durne Biryani' as live without verified product, image and admin-configured discount rules.
 - Free delivery above ₹100: currently delivery zones determine fee. Server-side checkout RPC requires a reviewed additive migration and delivery eligibility design. Do not claim free delivery is active.
