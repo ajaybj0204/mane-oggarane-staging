@@ -1,5 +1,7 @@
 # Mane & Oggarane — Integrated full-stack restaurant platform
 
+**Owner information handoff (24 October 2026):** A separate draft prelaunch branch now contains the actual Jigani pickup address, 8 AM–10 PM proposed daily hours, support email, and 32-dish public preview (no staged personal data or third-party image URLs). See **[Owner Details Prelaunch Release](docs/OWNER_DETAILS_PRELAUNCH_2026-10-24.md)**. Owner confirmed existing e-commerce domain `explorexdeals.com`; the separate restaurant test hostname `mane.explorexdeals.com` is proposed **only**, with no DNS, Vercel project or Shopify changes. Policies were reported approved but their actual wording remains unpublished. Branch only; no main/staging changes or live charges.
+
 **Production preparation (24 October 2026):** A separate public *prelaunch* build is now supported using `MNO_SITE_PHASE=prelaunch` and `NEXT_PUBLIC_SITE_PHASE=prelaunch`; checkout, bookings, reward redemptions and refund initiation are denied server-side. Existing private staging defaults are unchanged, and live Razorpay payments remain hard-disabled. See **[Consolidated Production-Prelaunch Handoff](docs/PRODUCTION_PRELAUNCH_HANDOFF_2026-10-24.md)**. Run `npm run qa:prelaunch` only after configuring a distinct production domain/project. This is **not** live-launch approval.
 
 

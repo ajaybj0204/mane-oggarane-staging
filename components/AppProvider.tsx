@@ -9,7 +9,7 @@ export function AppProvider({children}:{children:React.ReactNode}){
  const[menu,setMenu]=useState<Dish[]>([]);const[cart,setCart]=useState<CartLine[]>([]);const[mode,setMode]=useState<AppContext['mode']>('loading');const[userId,setUserId]=useState<string|null>(null);const[role,setRole]=useState<string|null>(null);const[authReady,setAuthReady]=useState(false);
  useEffect(()=>{try{const raw=JSON.parse(localStorage.getItem(KEY)||'[]');if(Array.isArray(raw))setCart(raw.filter((x)=>x&&typeof x.id==='string'&&Number.isInteger(x.quantity)&&x.quantity>0).slice(0,30))}catch{}},[]);
  useEffect(()=>{localStorage.setItem(KEY,JSON.stringify(cart))},[cart]);
- async function reload(){if(!publicConfigured()){setMenu(seedMenu);setMode('preview');return}try{const r=await fetch('/api/menu',{cache:'no-store'});if(!r.ok)throw new Error();const x=await r.json();setMenu(Array.isArray(x.products)?x.products:[]);setMode('connected')}catch{setMode('error');setMenu([])}}
+ async function reload(){if(!publicConfigured()&&process.env.NEXT_PUBLIC_SITE_PHASE!=='prelaunch'){setMenu(seedMenu);setMode('preview');return}try{const r=await fetch('/api/menu',{cache:'no-store'});if(!r.ok)throw new Error();const x=await r.json();setMenu(Array.isArray(x.products)?x.products:[]);setMode('connected')}catch{setMode('error');setMenu([])}}
  useEffect(()=>{void reload();if(!publicConfigured()){setAuthReady(true);return;}const db=browserDb();let alive=true;let seq=0;
  async function updateRole(user:string|null){const current=++seq;if(alive){setUserId(user);setRole(null);setAuthReady(!user);}if(!user)return;
  try{const {data:{session}}=await db.auth.getSession();if(!session?.access_token||session.user.id!==user)return;
