@@ -41,6 +41,12 @@ Database simulations verify SQL behavior but do not prove actual Razorpay **prov
 
 Until approved and scheduled, **automatic pending-order reservation cleanup is not running**. Current read-only inspection found **zero** pending expired/unpaid orders. Keep track of reservations until the cron is enabled.
 
+## Current security advisor findings
+
+- Database audit: service-only tables such as payment events, refund requests, settings and rate limits have RLS enabled without public policies. That is intentional for backend-only access; keep reviewing grants and server authorization.
+- **Supabase Auth warning:** leaked-password protection is currently disabled (see [password security guide](https://supabase.com/docs/guides/auth/password-security#password-strength-and-leaked-password-protection)). Review dashboard eligibility/availability before public launch.
+- Read-only post-test inspection: **0** synthetic QA orders, **0** synthetic QA event IDs, **0** expired pending orders, **0** refunds awaiting review; real Test Mode refund webhook remains recorded.
+
 ## Security and operational pre-launch boundaries
 
 - Vercel staging remains login-protected; the only public provider callback is a dedicated signed, Test Mode Supabase Edge Function.
