@@ -1,5 +1,8 @@
 # Mane & Oggarane — Integrated full-stack restaurant platform
 
+**Production preparation (24 October 2026):** A separate public *prelaunch* build is now supported using `MNO_SITE_PHASE=prelaunch` and `NEXT_PUBLIC_SITE_PHASE=prelaunch`; checkout, bookings, reward redemptions and refund initiation are denied server-side. Existing private staging defaults are unchanged, and live Razorpay payments remain hard-disabled. See **[Consolidated Production-Prelaunch Handoff](docs/PRODUCTION_PRELAUNCH_HANDOFF_2026-10-24.md)**. Run `npm run qa:prelaunch` only after configuring a distinct production domain/project. This is **not** live-launch approval.
+
+
 **Current status (24 October 2026):** the charcoal/saffron café redesign is deployed to private Vercel staging, Razorpay Test Mode captured-payment + full-refund flow was confirmed, and rollback-only database QA passed. **This is not production-ready/live-payment authorization.** See the [Final Staging QA Release](docs/FINAL_STAGING_QA_2026-10-24.md) for verified evidence and outstanding launch gates, including the **manually pending** pg_cron expiry schedule. The published app no longer mounts the old WebGL homepage experience.
 
 

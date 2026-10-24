@@ -1,9 +1,11 @@
+import {stagingTransactionsAllowed,prelaunchMessage} from '../../../lib/launch';
 import {serviceDb,userFromRequest} from '../../../lib/supabase';
 import {respond,fail,jsonBody,text} from '../../../lib/api';
 import {razorpay} from '../../../lib/razorpay';
 import {withinRate} from '../../../lib/rate';
 export const runtime='nodejs';export const dynamic='force-dynamic';
 export async function POST(req:Request){
+ if(!stagingTransactionsAllowed())return fail(prelaunchMessage(),503);
  try{
   if(!await withinRate(req,'checkout',12,900))return fail('Too many checkout attempts. Please try later.',429);
   const b=await jsonBody(req);if(!b)return fail('Invalid checkout request');

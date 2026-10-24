@@ -1,9 +1,11 @@
+import {stagingTransactionsAllowed,prelaunchMessage} from '../../../../../../lib/launch';
 import {staffFromRequest,serviceDb} from '../../../../../../lib/supabase';
 import {razorpay} from '../../../../../../lib/razorpay';
 import {respond,fail} from '../../../../../../lib/api';
 export const runtime='nodejs';
 type Ctx={params:Promise<{id:string}>};
 export async function POST(req:Request,{params}:Ctx){
+ if(!stagingTransactionsAllowed())return fail(prelaunchMessage(),503);
  const actor=await staffFromRequest(req,['owner','manager']);if(!actor)return fail('Manager access required',403);
  const {id}=await params;const db=serviceDb();
  if(!process.env.RAZORPAY_KEY_ID?.startsWith('rzp_test_'))return fail('This protected staging release permits Test Mode refunds only.',403);
