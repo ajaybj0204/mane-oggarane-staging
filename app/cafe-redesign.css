@@ -285,3 +285,14 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
  .flavor-backdrop *{animation:none!important;transition:none!important}
  .cafe-brand:hover .cafe-logo-holder,.cafe-footer-logo-link:hover{transform:none}
 }
+
+/* Food preference / discovery controls — retain existing Mane & Oggarane palette. */
+.preference-home{padding-top:24px;padding-bottom:22px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}
+.preference-home a{font-weight:700;color:#853614;text-decoration:underline;text-underline-offset:4px}
+.food-preference{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:14px 0}
+.food-preference-title{font-weight:750;color:#853614}
+.food-preference-options{display:inline-flex;border:1px solid #dbc9b5;border-radius:999px;padding:4px;background:#fffdf9;flex-wrap:wrap}
+.food-preference-options button{border:0;border-radius:999px;padding:10px 17px;background:transparent;color:#352b22;cursor:pointer;font:inherit;font-size:.9rem;font-weight:650;min-height:42px}
+.food-preference-options button.selected{background:#853614;color:#fffdf9}
+.food-preference-options button:focus-visible{outline:3px solid #eda23d;outline-offset:2px}
+@media(max-width:540px){.food-preference{align-items:flex-start;flex-direction:column}.food-preference-options{width:100%;justify-content:space-around}.food-preference-options button{padding:10px 12px}}
