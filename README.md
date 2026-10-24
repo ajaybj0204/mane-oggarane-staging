@@ -1,5 +1,8 @@
 # Mane & Oggarane — Integrated full-stack restaurant platform
 
+**Current status (24 October 2026):** the charcoal/saffron café redesign is deployed to private Vercel staging, Razorpay Test Mode captured-payment + full-refund flow was confirmed, and rollback-only database QA passed. **This is not production-ready/live-payment authorization.** See the [Final Staging QA Release](docs/FINAL_STAGING_QA_2026-10-24.md) for verified evidence and outstanding launch gates, including the **manually pending** pg_cron expiry schedule. The published app no longer mounts the old WebGL homepage experience.
+
+
 ## Payment-readiness batch · October 2026 (private Vercel staging)
 
 The redesigned, 3D-free cafe UI has been deployed on protected Vercel staging. Its public Razorpay callback cannot pass Vercel Authentication. The separate Supabase Edge Function in `supabase/functions/razorpay-test-webhook/` is the intended signed **Test Mode** receiver. See **[PAYMENT_STAGING_RELEASE.md](docs/PAYMENT_STAGING_RELEASE.md)** for the consolidated setup, manual Supabase secrets, Razorpay dashboard webhook destination, and safe acceptance test matrix.
