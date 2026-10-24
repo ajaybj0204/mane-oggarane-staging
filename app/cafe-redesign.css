@@ -296,3 +296,14 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .food-preference-options button.selected{background:#853614;color:#fffdf9}
 .food-preference-options button:focus-visible{outline:3px solid #eda23d;outline-offset:2px}
 @media(max-width:540px){.food-preference{align-items:flex-start;flex-direction:column}.food-preference-options{width:100%;justify-content:space-around}.food-preference-options button{padding:10px 12px}}
+
+.kitchen-highlights{margin-top:26px;margin-bottom:48px;background:#33251d;color:#fff8ee;border-radius:16px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;min-height:360px}
+.kitchen-highlights-copy{padding:clamp(22px,5vw,50px);display:flex;flex-direction:column;align-items:start;gap:13px;justify-content:center}
+.kitchen-highlights h2{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.8rem,3.5vw,3.2rem);line-height:1.15;margin:0}
+.kitchen-highlights p{margin:0}.kitchen-highlights strong{font-size:1.3rem}
+.kitchen-highlights-image{min-height:300px;overflow:hidden}
+.kitchen-highlights-image img{width:100%;height:100%;object-fit:cover}
+.kitchen-highlight-controls{display:flex;align-items:center;gap:6px}
+.kitchen-highlight-controls button{background:transparent;border:1px solid #fff8ee70;color:#fff8ee;border-radius:99px;min-width:36px;min-height:36px;cursor:pointer}
+.kitchen-highlight-controls button[aria-pressed=true]{color:#f9af46}
+@media(max-width:650px){.kitchen-highlights{grid-template-columns:1fr}.kitchen-highlights-image{min-height:220px;max-height:280px;order:-1}}
