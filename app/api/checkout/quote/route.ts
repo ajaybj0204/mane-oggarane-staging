@@ -14,7 +14,7 @@ export async function POST(req:Request){
   const type=body.fulfillment;
   if(type!=='pickup'&&type!=='delivery')return fail('Choose pickup or delivery');
   const name=text(body.name,100),phone=text(body.phone,24);
-  const user=await userFromRequest(req),email=user?.email||text(body.email,150);
+  const user=await userFromRequest(req);if(!user)return fail('Sign in to your account before reviewing or placing an order.',401);const email=user.email||text(body.email,150);
   if(name.length<2||!(/^[^@ ]+@[^@ ]+\.[^@ ]+$/.test(email))||!(/^[+0-9 -]{8,18}$/.test(phone)))return fail('Invalid customer details');
   const entries:{id:string;quantity:number}[]=[];const seen=new Set<string>();
   for(const raw of items){
