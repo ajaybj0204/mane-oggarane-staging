@@ -382,3 +382,22 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .kitchen-story-brand img{display:block;width:min(185px,52%);height:185px;aspect-ratio:auto;object-fit:contain;mix-blend-mode:normal;border-radius:50%;animation:none}
 .kitchen-story-brand span{display:block;line-height:1.2;margin:0;text-align:center}
 @media(max-width:760px){.kitchen-story-hero-inner{grid-template-columns:minmax(0,1fr);min-height:auto;gap:30px}.kitchen-story-hero-copy h1{font-size:clamp(2.5rem,8vw,4rem)}.kitchen-story-brand{width:100%;max-width:440px;min-height:245px;padding:22px 18px}.kitchen-story-brand img{width:125px;height:125px}.kitchen-story-hero{padding:45px 0 55px}}
+
+
+/* Homepage branded kitchen illustration replaces dish photo. */
+.cafe-hero-branded-art{position:relative;isolation:isolate;background:radial-gradient(ellipse at 50% 28%,#9b5830 0%,#59311e 37%,#271b18 78%);overflow:hidden}
+.cafe-hero-branded-art:before{content:"";position:absolute;inset:12px;border:1px solid rgba(244,179,86,.45);border-radius:49% 49% 6px 6px / 31% 31% 6px 6px;pointer-events:none;z-index:1}
+.cafe-hero-branded-art:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(120deg,transparent 0 24px,rgba(255,236,187,.025) 25px 26px),radial-gradient(circle at 60% 30%,rgba(255,204,122,.23),transparent 45%);pointer-events:none}
+.cafe-hero-branded-art .hero-brand-scene{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;padding:44px 20px 28px;box-sizing:border-box;color:#ffefcf;text-align:center;z-index:2}
+.hero-brand-logo-ring{position:relative;width:clamp(145px,18vw,215px);aspect-ratio:1;border:2px solid #e5a340;border-radius:50%;background:#fffaed;display:grid;place-items:center;box-shadow:0 0 0 10px #f4b96222,0 12px 45px #180e0bd1}
+.hero-brand-logo-ring img{display:block;width:98%;height:98%;object-fit:contain;border-radius:50%}
+.hero-brand-tagline{font-weight:800!important;font-size:clamp(1.15rem,2.4vw,1.8rem)!important;line-height:1.5!important;color:#f6c477;margin:7px 0 0!important}
+.hero-brand-divider{display:flex;align-items:center;gap:12px;color:#e6aa57;width:70%;font-size:1.4rem}
+.hero-brand-divider:before,.hero-brand-divider:after{content:"";height:1px;flex:1;background:#d8a057a6}
+.hero-brand-english{font-size:clamp(.75rem,1.12vw,.96rem)!important;line-height:1.8!important;letter-spacing:.18em;color:#fff1d9;font-weight:850;text-shadow:0 2px 6px #1b0b08;margin:0!important}
+.hero-brand-spice{position:absolute;bottom:17px;color:#e4a34c;letter-spacing:1.5rem;font-size:1.45rem}
+.hero-brand-leaf{position:absolute;font-size:6rem;opacity:.22;color:#e8b873}
+.hero-leaf-left{top:17%;left:-10%;transform:rotate(-35deg)}
+.hero-leaf-right{bottom:18%;right:-10%;transform:rotate(125deg)}
+.hero-brand-light{position:absolute;width:70%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#fac5752b,transparent 65%);filter:blur(8px);pointer-events:none}
+@media(max-width:760px){.cafe-hero-branded-art .hero-brand-scene{padding:32px 12px}.hero-brand-logo-ring{width:clamp(130px,35vw,190px)}.hero-brand-spice{letter-spacing:.8rem}}
