@@ -480,3 +480,9 @@ body{background:#efe0c9;background-image:linear-gradient(#f5e8daca,#f5e8daca),va
 main:not(.cafe-main),.auth-page,.account-page{background-image:linear-gradient(#fff5e6dc,#fff5e6dc),var(--mno-kitchen-photo);background-size:cover;background-position:center;background-attachment:fixed}
 main:not(.cafe-main) .container,.auth-page .container{position:relative}
 @media(max-width:800px){.mno-home-hero{background-position:60% center}.mno-home-hero-grid{grid-template-columns:1fr;min-height:560px}.mno-home-hero-visual{display:none}.mno-home-hero-copy{padding:25px 0;max-width:570px}.mno-home-hero{background-image:linear-gradient(90deg,#1b120ded,#1b120dab),var(--mno-kitchen-photo)}}
+
+/* Brand mark floats over real kitchen photograph; no duplicate text or poster inside a card */
+.mno-home-hero-visual{display:flex;justify-content:center;align-items:center;aspect-ratio:1.15/1}
+.mno-home-hero-visual img{position:relative;inset:auto;width:min(64%,350px);height:auto;max-height:75%;object-fit:contain;opacity:1;filter:drop-shadow(0 15px 25px #130b07b3);background:#fff5e9ed;border:5px solid #e0a452;border-radius:50%;padding:12px;box-shadow:0 0 0 18px #2114076e}
+.mno-home-hero-visual-caption{display:block;bottom:8%;background:none;text-shadow:0 3px 9px #180d09;padding:8px;font-size:.82rem}
+@media(max-width:800px){.mno-home-hero-visual{display:none}}
