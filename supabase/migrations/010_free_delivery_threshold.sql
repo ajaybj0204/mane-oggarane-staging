@@ -1,4 +1,6 @@
--- Free delivery is strictly ABOVE the configured eligible merchandise subtotal (default ₹100).\n-- Does not enable new delivery zones or turn on deliveries.\nupdate public.settings set value=jsonb_set(value,'{free_delivery_threshold_paise}','10000'::jsonb,true) where key='store' and not(value ? 'free_delivery_threshold_paise');\ncreate or replace function public.create_checkout_order(
+-- Free delivery is strictly ABOVE the configured eligible merchandise subtotal (default ₹100).\n-- Does not enable new delivery zones or turn on deliveries.\nupdate public.settings set value=jsonb_set(value,'{free_delivery_threshold_paise}','10000'::jsonb,true) where key='store' and not(value ? 'free_delivery_threshold_paise');
+-- Business rules only; keep delivery switched off until true 15km location validation is deployed.
+update public.settings set value=value || '{"delivery_base_fee_paise":4000,"delivery_radius_km":15}'::jsonb where key='store';\ncreate or replace function public.create_checkout_order(
  p_customer_id uuid,p_name text,p_email text,p_phone text,p_fulfillment text,p_address jsonb,p_notes text,p_items jsonb,p_coupon text
 ) returns public.orders language plpgsql security definer set search_path=public as $$
 declare v_product public.products%rowtype;v_item jsonb;v_order public.orders;v_qty int;v_subtotal int:=0;v_delivery int:=0;
@@ -29,7 +31,7 @@ begin
   select * into v_zone from public.delivery_zones where pin_code=p_address->>'pin_code' and active=true;
   if not found then raise exception 'This PIN code is outside our current delivery zones';end if;
   if v_subtotal<v_zone.minimum_paise then raise exception 'Delivery minimum not reached';end if;
-  v_delivery:=case when v_subtotal>coalesce((v_store->>'free_delivery_threshold_paise')::integer,10000) then 0 else v_zone.fee_paise end;
+  v_delivery:=case when v_subtotal>coalesce((v_store->>'free_delivery_threshold_paise')::integer,10000) then 0 else coalesce((v_store->>'delivery_base_fee_paise')::integer,4000) end;
  end if;
  if nullif(trim(coalesce(p_coupon,'')),'') is not null then
   select * into v_coupon from public.coupons where upper(code)=upper(trim(p_coupon)) and active=true and (expires_at is null or expires_at>now()) for update;
