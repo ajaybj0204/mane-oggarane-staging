@@ -1,14 +1,7 @@
 'use client';
-import {useEffect,useState} from 'react';
 import Link from 'next/link';
-import {useApp} from './AppProvider';
 
 export default function HeroExperience(){
-  const {menu}=useApp();
-  const [imageFailed,setImageFailed]=useState(false);
-  const dishes=menu.filter(d=>d.active&&d.image&&(d.stock_qty==null||d.stock_qty>0));
-  const featured=dishes.find(d=>d.featured)||dishes[0];
-  useEffect(()=>setImageFailed(false),[featured?.id]);
   return <section className="cafe-hero" aria-labelledby="cafe-hero-title">
     <div className="cafe-hero-grain" aria-hidden="true"/>
     <div className="container cafe-hero-grid">
@@ -28,12 +21,17 @@ export default function HeroExperience(){
         <div className="cafe-hero-orbit cafe-orbit-two" aria-hidden="true"/>
         <div className="cafe-hero-spice cafe-spice-one" aria-hidden="true">✺</div>
         <div className="cafe-hero-spice cafe-spice-two" aria-hidden="true">✳</div>
-        <div className="cafe-hero-photo">
-          {featured?.image&&!imageFailed?
-            <img src={featured.image} alt={featured.name+' freshly prepared at Mane & Oggarane'} fetchPriority="high" referrerPolicy="no-referrer" onError={()=>setImageFailed(true)}/>:
-            <div className="cafe-hero-photo-fallback" aria-label="Mane & Oggarane kitchen"><span>✳</span><strong lang="kn">ಮನೆಯ ರುಚಿ</strong></div>}
-          <div className="cafe-hero-photo-shade"/>
-          <span className="cafe-hero-photo-label">FROM THE KITCHEN <span>✦</span> FRESH EVERY DAY</span>
+        <div className="cafe-hero-photo cafe-hero-branded-art" role="img" aria-label="Mane and Oggarane restaurant logo, home-style Karnataka cooking and the slogan From our kitchen to your table">
+          <div className="hero-brand-scene" aria-hidden="true">
+            <span className="hero-brand-leaf hero-leaf-left">❧</span>
+            <span className="hero-brand-leaf hero-leaf-right">❧</span>
+            <div className="hero-brand-light"/>
+            <div className="hero-brand-logo-ring"><img src="/mane-oggarane-logo.png" alt=""/></div>
+            <p className="hero-brand-tagline" lang="kn">ಮನೆಯ ಘಮ, ಪ್ರೀತಿಯ ರುಚಿ.</p>
+            <div className="hero-brand-divider"><span>✦</span></div>
+            <p className="hero-brand-english">FROM OUR KITCHEN<br/>TO YOUR TABLE</p>
+            <div className="hero-brand-spice">✺ &nbsp; ✳ &nbsp; ✺</div>
+          </div>
         </div>
         <div className="cafe-steam cafe-steam-a" aria-hidden="true"/>
         <div className="cafe-steam cafe-steam-b" aria-hidden="true"/>
