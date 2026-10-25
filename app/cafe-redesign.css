@@ -369,3 +369,16 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .auth-form-card .auth-switch{margin-top:22px}
 @media(max-width:760px){.kitchen-story-hero-inner,.kitchen-story-intro{grid-template-columns:1fr}.kitchen-story-brand{min-height:225px}.kitchen-story-intro{padding-top:55px;padding-bottom:55px}.kitchen-story-chapter{grid-template-columns:65px 1fr;gap:18px;padding:35px 0}.kitchen-chapter-index span:first-child{font-size:2.8rem}.kitchen-chapter-index span:last-child{font-size:1.4rem}.kitchen-story-hero-copy h1{font-size:clamp(2.6rem,9vw,4rem)}}
 @media(prefers-reduced-motion:reduce){.kitchen-story-brand img,.kitchen-chapter-index span:last-child{animation:none!important}.story-gallery-frame img{transition:none!important}}
+
+/* Our Kitchen hero alignment correction, 2026-10-25 */
+.kitchen-story-hero{padding:clamp(52px,6vw,82px) 0}
+.kitchen-story-hero-inner{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);align-items:center;column-gap:clamp(32px,5.5vw,84px);min-height:460px}
+.kitchen-story-hero-copy{min-width:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.kitchen-story-hero-copy h1{font-size:clamp(3rem,5.35vw,5.2rem);line-height:1.08;max-width:650px;margin:14px 0 22px;overflow-wrap:normal;text-wrap:balance}
+.kitchen-story-hero-copy>p:not(.eyebrow){max-width:540px;margin:0 0 21px;line-height:1.75;text-wrap:pretty}
+.kitchen-story-hero-copy .kitchen-language{margin:0 0 20px;align-self:flex-start}
+.kitchen-story-hero-copy>.cafe-pill{display:inline-flex;align-items:center;justify-content:center;min-height:48px}
+.kitchen-story-brand{width:100%;max-width:465px;min-height:340px;justify-self:center;align-self:center;transform:none;display:flex;flex-direction:column;justify-content:center;padding:30px 20px;box-sizing:border-box;gap:22px}
+.kitchen-story-brand img{display:block;width:min(185px,52%);height:185px;aspect-ratio:auto;object-fit:contain;mix-blend-mode:normal;border-radius:50%;animation:none}
+.kitchen-story-brand span{display:block;line-height:1.2;margin:0;text-align:center}
+@media(max-width:760px){.kitchen-story-hero-inner{grid-template-columns:minmax(0,1fr);min-height:auto;gap:30px}.kitchen-story-hero-copy h1{font-size:clamp(2.5rem,8vw,4rem)}.kitchen-story-brand{width:100%;max-width:440px;min-height:245px;padding:22px 18px}.kitchen-story-brand img{width:125px;height:125px}.kitchen-story-hero{padding:45px 0 55px}}
