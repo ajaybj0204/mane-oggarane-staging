@@ -1,12 +1,16 @@
 import Link from 'next/link';
-
-const heroImage = 'https://cdn.shopify.com/s/files/1/0661/5180/9085/files/mane-oggarane-homepage-hero.png?v=1792912345';
-
+const art='https://cdn.shopify.com/s/files/1/0661/5180/9085/files/mane-oggarane-homepage-hero.png?v=1792912345';
 export default function HeroExperience(){
- return <section className="cafe-hero-exact" aria-label="Mane and Oggarane welcome">
-  <img className="cafe-hero-exact-image" src={heroImage} alt="Mane & Oggarane kitchen welcome: ಮನೆಯ ಊಟ, ಪ್ರೀತಿಯ ರುಚಿ. Warm Karnataka food, the Mane and Oggarane logo, a rustic kitchen, dosa, chutneys and sambar. From our kitchen to your table." width={1377} height={1142} fetchPriority="high"/>
-  <Link className="cafe-hero-art-link cafe-hero-art-menu" href="/menu" aria-label="Explore our menu"><span className="sr-only">Explore our menu</span></Link>
-  <Link className="cafe-hero-art-link cafe-hero-art-story" href="/story" aria-label="Read our kitchen story"><span className="sr-only">Our little story</span></Link>
-  <div className="cafe-hero-mobile-actions"><Link href="/menu" className="cafe-pill cafe-pill-bright">Explore our menu →</Link><Link href="/story" className="cafe-pill cafe-pill-outline">Our little story →</Link></div>
+ return <section className="mno-home-hero" aria-labelledby="mno-home-heading">
+  <div className="container mno-home-hero-grid">
+   <div className="mno-home-hero-copy">
+    <p className="mno-home-hero-kicker">✦ &nbsp; MADE WITH LOVE · KARNATAKA</p>
+    <h1 id="mno-home-heading" lang="kn"><span>ಮನೆಯ ಊಟ,</span><strong>ಪ್ರೀತಿಯ ರುಚಿ.</strong></h1>
+    <p className="mno-home-hero-description">Comfort food that feels like coming home. Freshly made Karnataka favourites, thoughtful little details, and the joy of sharing a good meal.</p>
+    <div className="mno-home-hero-buttons"><Link href="/menu" className="cafe-pill cafe-pill-bright">Explore our menu <span aria-hidden="true">→</span></Link><Link href="/story" className="cafe-pill cafe-pill-outline">Our little story <span aria-hidden="true">→</span></Link></div>
+    <p className="mno-home-hero-foot" lang="kn">✦ &nbsp; ಒಂದು ತುತ್ತು, ಸಾವಿರ ನೆನಪುಗಳು.</p>
+   </div>
+   <div className="mno-home-hero-visual"><img src={art} width={1448} height={1086} alt="Warm Karnataka home kitchen with Mane and Oggarane branding and dosa" fetchPriority="high"/><div className="mno-home-hero-visual-caption">FROM OUR KITCHEN ✦ TO YOUR TABLE</div></div>
+  </div>
  </section>
 }
