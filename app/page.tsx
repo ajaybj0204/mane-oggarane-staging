@@ -12,7 +12,7 @@ export default function Home(){
    <HeroExperience/>
    <div className="cafe-love-strip" aria-label="Our kitchen philosophy"><div className="container"><span>✳ <span lang="kn">ಮನೆಯ ಊಟ</span></span><span>MADE WITH LOVE</span><span>✳ FRESHLY PREPARED</span><span lang="kn">ಒಂದು ತುತ್ತು, ಸಾವಿರ ನೆನಪುಗಳು.</span></div></div>
    <section className="container preference-home"><FoodPreferenceSelector/><p><Link href="/menu?category=under150">Explore dishes Under ₹150 →</Link></p></section>
-   <div className="container"><p className="fineprint">When delivery is enabled for your PIN code, qualifying food orders over ₹100 receive free delivery. Charges and eligibility are confirmed at checkout.</p></div><KitchenHighlights/>
+   <div className="container"><p className="fineprint">Planned delivery: up to 15 km from Jigani, ₹40 for orders up to ₹100 and free above ₹100. Delivery is not yet enabled; address eligibility must be verified. Charges and eligibility are confirmed at checkout.</p></div><KitchenHighlights/>
    <CategoryGallery/>
    <section className="cafe-manifesto" aria-labelledby="cafe-manifesto-title"><div className="container cafe-manifesto-grid">
      <div className="cafe-manifesto-seal" aria-hidden="true"><span>✺</span><i>MADE WITH LOVE</i><strong lang="kn">ಮನೆಯಲ್ಲಿ ಮಾಡಿದಂತೆ</strong></div>
