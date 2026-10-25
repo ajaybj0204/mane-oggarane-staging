@@ -416,3 +416,41 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
  .cafe-hero-mobile-actions{display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap;padding:16px 12px 21px;background:#251b16}
  .cafe-hero-mobile-actions .cafe-pill{min-height:44px;display:inline-flex;align-items:center;justify-content:center}
 }
+
+
+/* 2026-10-25: warm, readable, homely design across the existing site. */
+body{background-color:#f6eddd;background-image:radial-gradient(ellipse at 12% 14%,#f3c78644,transparent 38%),radial-gradient(ellipse at 90% 75%,#e3b17b3a,transparent 42%),repeating-linear-gradient(120deg,#7b421006 0 1px,transparent 1px 20px);background-attachment:fixed}
+.cafe-main,.kitchen-chronicle{background:transparent}
+.cafe-main .preference-home,.kitchen-story-intro,.kitchen-story-chapters,.kitchen-story-sources{position:relative}
+.cafe-specials,.cafe-preparation,.cafe-final-cta,.cafe-categories,.cafe-manifesto,.preference-home,.flavor-page{background-image:radial-gradient(ellipse at 12% 18%,#d88d3820,transparent 48%),radial-gradient(ellipse at 92% 88%,#a2643722,transparent 45%),url('/ambient-spice-dust.svg');background-size:auto,auto,cover;background-repeat:no-repeat}
+.cafe-specials{background-color:#f9f1e4}
+.cafe-preparation{background-color:#f3e6d3}
+.cafe-special-card,.form-panel,.cart-card{background:#fff8ed;border-color:#e1c7a4;box-shadow:0 15px 40px #49301e15}
+.cafe-preparing-step{background:#38271f!important;color:#fff2df!important;border:1px solid #c58b46!important;box-shadow:0 16px 40px #2a160c38;min-height:390px}
+.cafe-preparing-step .preparing-detail{background:linear-gradient(150deg,#523526,#2c211c)!important;padding:24px;min-height:190px}
+.cafe-preparing-step .preparing-detail h3{color:#fff9ed!important;font-weight:750}
+.cafe-preparing-step .preparing-detail strong{color:#ffbe70!important}
+.cafe-preparing-step .preparing-detail p{color:#f4e2ca!important;font-size:.9rem;line-height:1.7}
+.cafe-preparing-step .cafe-story-number{color:#ffbd6a!important}
+.cafe-preparing-step .cafe-story-arrow{color:#ffe5b8!important}
+.cafe-preparation .cafe-section-top h2{color:#36251b!important;text-shadow:none!important}
+.cafe-preparation .cafe-section-top p,.cafe-preparation .cafe-section-top>p{color:#58402e!important}
+.cafe-preparation .cafe-overline{color:#874019!important}
+.kitchen-chronicle .kitchen-story-intro p,.kitchen-chronicle .kitchen-story-chapter p{color:#422f23}
+.form-panel h1,.form-panel h2,.form-panel h3,.cart-card h2{color:#32231b}
+.mno-home-hero{background:#201a16;background-image:radial-gradient(circle at 79% 29%,#8a4b2c75,transparent 55%),repeating-linear-gradient(122deg,#ffffff05 0 1px,transparent 1px 17px);color:#fff5e6;overflow:hidden}
+.mno-home-hero-grid{min-height:clamp(480px,50vw,650px);padding:45px 0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,55px);align-items:center}
+.mno-home-hero-copy{min-width:0;display:flex;flex-direction:column;align-items:flex-start}
+.mno-home-hero-kicker{color:#fac178;font-size:.74rem;font-weight:800;letter-spacing:.16em;margin:0 0 20px}
+.mno-home-hero-copy h1{font-family:'Noto Serif Kannada',Georgia,serif;font-size:clamp(2.4rem,4.2vw,4.6rem);line-height:1.48;letter-spacing:-.025em;margin:0 0 18px}
+.mno-home-hero-copy h1 span,.mno-home-hero-copy h1 strong{display:block}
+.mno-home-hero-copy h1 strong{color:#ffae3d}
+.mno-home-hero-description{font-size:clamp(.95rem,1.12vw,1.15rem);line-height:1.85;color:#f3e4d1;max-width:480px;margin:0 0 26px}
+.mno-home-hero-buttons{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.mno-home-hero-buttons .cafe-pill{min-height:52px;white-space:nowrap}
+.mno-home-hero-foot{margin:28px 0 0;color:#eed0a8;font-family:'Noto Serif Kannada',serif}
+.mno-home-hero-visual{position:relative;overflow:hidden;border:5px solid #d38c35;border-radius:48% 48% 8px 8px/30% 30% 8px 8px;aspect-ratio:1.15/1;box-shadow:0 22px 65px #08050275;background:#61412a}
+.mno-home-hero-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:83% 50%;display:block}
+.mno-home-hero-visual-caption{position:absolute;bottom:0;left:0;right:0;text-align:center;background:linear-gradient(transparent,#25160fe8);padding:50px 10px 18px;color:#fff1d0;letter-spacing:.16em;font-size:.65rem;font-weight:850}
+@media(max-width:800px){.mno-home-hero-grid{grid-template-columns:1fr;gap:28px;padding:40px 0}.mno-home-hero-copy h1{font-size:clamp(2.25rem,7vw,3.6rem)}.mno-home-hero-visual{max-width:570px;width:100%;margin-inline:auto;aspect-ratio:1.3/1}.mno-home-hero-buttons{width:100%}.mno-home-hero-buttons .cafe-pill{flex:1;min-width:155px}}
+@media(max-width:450px){.mno-home-hero-visual{aspect-ratio:1.1/1}.mno-home-hero-buttons .cafe-pill{font-size:.75rem;padding:12px}}
