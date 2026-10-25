@@ -401,3 +401,18 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .hero-leaf-right{bottom:18%;right:-10%;transform:rotate(125deg)}
 .hero-brand-light{position:absolute;width:70%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#fac5752b,transparent 65%);filter:blur(8px);pointer-events:none}
 @media(max-width:760px){.cafe-hero-branded-art .hero-brand-scene{padding:32px 12px}.hero-brand-logo-ring{width:clamp(130px,35vw,190px)}.hero-brand-spice{letter-spacing:.8rem}}
+
+
+/* Exact customer-approved image: do not crop, repaint, or replace baked-in lettering. */
+.cafe-hero-exact{position:relative;width:100%;max-width:100%;overflow:hidden;background:#251b16}
+.cafe-hero-exact-image{display:block;width:100%;height:auto;max-width:none;object-fit:contain}
+.cafe-hero-art-link{position:absolute;z-index:2;display:block;border-radius:9px;outline-offset:4px}
+.cafe-hero-art-link:focus-visible{outline:4px solid #fff4d2;background:#ffffff24}
+.cafe-hero-art-menu{left:3.8%;top:43.7%;width:17.3%;height:5.1%}
+.cafe-hero-art-story{left:3.8%;top:49.9%;width:17.3%;height:5.1%}
+.cafe-hero-mobile-actions{display:none}
+@media(max-width:700px){
+ .cafe-hero-art-link{display:none}
+ .cafe-hero-mobile-actions{display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap;padding:16px 12px 21px;background:#251b16}
+ .cafe-hero-mobile-actions .cafe-pill{min-height:44px;display:inline-flex;align-items:center;justify-content:center}
+}
