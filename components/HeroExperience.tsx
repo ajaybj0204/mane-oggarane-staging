@@ -1,7 +1,7 @@
 import Link from 'next/link';
 const art='/mane-oggarane-logo.png';
 export default function HeroExperience(){
- return <section className="mno-home-hero" aria-labelledby="mno-home-heading">
+ return <section className="mno-home-hero" aria-labelledby="mno-home-heading"><img className="mno-live-hero-photo" src="https://cdn.shopify.com/s/files/1/0661/5180/9085/files/mane-oggarane-kitchen-scene.jpg?v=1792914208" alt="Warm rustic Karnataka home kitchen" width={1920} height={1080} fetchPriority="high"/>
   <div className="container mno-home-hero-grid">
    <div className="mno-home-hero-copy">
     <p className="mno-home-hero-kicker">✦ &nbsp; MADE WITH LOVE · KARNATAKA</p>
