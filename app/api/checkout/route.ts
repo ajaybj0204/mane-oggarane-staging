@@ -12,7 +12,7 @@ export async function POST(req:Request){
   const items=Array.isArray(b.items)?b.items.map((x)=>({id:text(x?.id,80),quantity:Number(x?.quantity)})):[];
   const type=b.fulfillment==='delivery'?'delivery':b.fulfillment==='pickup'?'pickup':null;
   if(!type||items.length<1||items.length>30)return fail('Invalid fulfillment or basket');
-  const user=await userFromRequest(req);const db=serviceDb();
+  const user=await userFromRequest(req);if(!user)return fail('Sign in to your account before placing an order.',401);const db=serviceDb();
   let customerEmail=text(b.email,150);
   if(user){customerEmail=user.email||customerEmail;if(!customerEmail)return fail('Missing verified account email')}
   const details={p_customer_id:user?.id||null,p_name:text(b.name,100),p_email:customerEmail,p_phone:text(b.phone,24),p_fulfillment:type,p_address:b.address&&typeof b.address==='object'?b.address:null,p_notes:text(b.notes,500),p_items:items,p_coupon:text(b.coupon,40)};
