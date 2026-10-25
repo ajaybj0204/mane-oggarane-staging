@@ -51,7 +51,7 @@ export async function POST(req:Request){
    if(error)throw error;
    if(!zone)return fail('This PIN code is outside our current delivery zones');
    if(subtotal<zone.minimum_paise)return fail('Delivery minimum not reached');
-   delivery=zone.fee_paise;
+   delivery=subtotal>Number(store.free_delivery_threshold_paise??10000)?0:Number(store.delivery_base_fee_paise??4000);
   }
   let discount=0;
   const code=text(body.coupon,40);
