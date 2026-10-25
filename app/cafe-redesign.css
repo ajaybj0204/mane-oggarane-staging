@@ -307,3 +307,14 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .kitchen-highlight-controls button{background:transparent;border:1px solid #fff8ee70;color:#fff8ee;border-radius:99px;min-width:36px;min-height:36px;cursor:pointer}
 .kitchen-highlight-controls button[aria-pressed=true]{color:#f9af46}
 @media(max-width:650px){.kitchen-highlights{grid-template-columns:1fr}.kitchen-highlights-image{min-height:220px;max-height:280px;order:-1}}
+
+/* Fill the entire right-hand carousel column; DishImage includes a wrapper. */
+.kitchen-highlights{align-items:stretch}
+.kitchen-highlights-image{position:relative;min-width:0;min-height:360px;align-self:stretch;overflow:hidden}
+.kitchen-highlights-image .dish-image{position:absolute;inset:0;width:100%;height:100%;min-height:0;overflow:hidden}
+.kitchen-highlights-image .dish-image>img{display:block;width:100%;height:100%;object-fit:cover;object-position:center center}
+.kitchen-highlights-image .image-fallback{width:100%;height:100%;min-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center}
+@media(max-width:650px){
+ .kitchen-highlights-image{min-height:240px;height:clamp(240px,57vw,340px);max-height:none}
+ .kitchen-highlights-image .dish-image{height:100%}
+}
