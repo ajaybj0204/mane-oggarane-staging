@@ -7,7 +7,7 @@ export const BUSINESS_DEFAULTS:Business={
   name:'Mane & Oggarane',
   address:'Jigani APC Circle, Bannerghatta–Anekal Road, Jigani Industrial Area Phase 1, Ittina Nagar, Jigani, Anekal Taluk, Bengaluru, Karnataka 560105',
   hours:'Monday to Sunday, 9:00 AM – 10:00 PM',openingTime:'09:00',closingTime:'22:00',timezone:'Asia/Kolkata',
-  phone:'',email:'',fssai:'',pickup:true,delivery:true,acceptingOrders:true,
+  phone:'',email:'explorexplorer02@gmail.com',fssai:'',pickup:true,delivery:true,acceptingOrders:true,
 };
 
 /** Delivery rules mirrored from the checkout database function (create_checkout_order). */

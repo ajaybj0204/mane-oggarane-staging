@@ -43,6 +43,6 @@ update public.settings set value = value || jsonb_build_object(
  'hours','Monday to Sunday, 9:00 AM – 10:00 PM',
  'opening_time','09:00','closing_time','22:00','timezone','Asia/Kolkata',
  'address','Jigani APC Circle, Bannerghatta–Anekal Road, Jigani Industrial Area Phase 1, Ittina Nagar, Jigani, Anekal Taluk, Bengaluru, Karnataka 560105',
- 'support_email', coalesce(value->>'support_email',''),
+ 'support_email','explorexplorer02@gmail.com','support_phone','',
  'fssai_number', coalesce(value->>'fssai_number','')
 ) where key='store';
