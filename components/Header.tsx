@@ -12,22 +12,29 @@ export default function Header(){
   const isOwner=role==='owner';
   const isStaff=['manager','kitchen','rider'].includes(role||'');
   const links=[['/','Home'],['/menu','Our Menu'],['/story','Our Kitchen'],['/rewards','Rewards'],['/orders','Track Orders']];
+  // Status strip only appears when the customer needs to know something (sample menu or outage).
+  const notice=mode==='preview'?'DESIGN PREVIEW · SAMPLE ITEMS · CHECKOUT DISABLED':mode==='error'?'MENU TEMPORARILY UNAVAILABLE · PLEASE REFRESH SHORTLY':'';
   return <>
-    <div className="preview-flag" role="status">{mode==='preview'?'DESIGN PREVIEW · SAMPLE ITEMS · CHECKOUT DISABLED':mode==='connected'?'ಮನೆಯ ಘಮ, ಪ್ರೀತಿಯ ರುಚಿ · WELCOME HOME':mode==='error'?'MENU TEMPORARILY UNAVAILABLE':'FRESH FLAVORS · MADE WITH LOVE'}</div>
-    <header className="site-header cafe-site-header">
-      <div className="container nav cafe-nav">
-        <Link className="brand cafe-brand" href="/" aria-label="Mane and Oggarane home">
-          <span className="brand-emblem cafe-brand-emblem cafe-logo-holder"><img className="cafe-logo-image" src="/mane-oggarane-logo.png" alt="" width={48} height={48}/></span>
-          <span><b>Mane <em>&</em> Oggarane</b><small lang="kn">ಮನೆ & ಒಗ್ಗರಣೆ</small></span>
+    {notice&&<div className="preview-flag mo-status-strip" role="status">{notice}</div>}
+    <header className="mo-header">
+      <div className="mo-shell mo-header-row">
+        <Link className="mo-brand" href="/" aria-label="Mane and Oggarane home">
+          <span className="mo-brand-seal"><img src="/theme/logo-128.webp" alt="" width={56} height={56}/></span>
+          <span className="mo-brand-words"><b>Mane <em>&amp;</em> Oggarane</b><small lang="kn">ಮನೆ &amp; ಒಗ್ಗರಣೆ</small></span>
         </Link>
-        <button type="button" className="cafe-nav-toggle" aria-expanded={open} aria-controls="cafe-primary-navigation" aria-label={open?'Close navigation':'Open navigation'} onClick={()=>setOpen(!open)}><span/><span/><span/></button>
-        <nav id="cafe-primary-navigation" className={'nav-links cafe-nav-links '+(open?'is-open':'')} aria-label="Primary">
+        <nav id="mo-primary-navigation" className={'mo-nav '+(open?'is-open':'')} aria-label="Primary">
           {links.map(([href,name])=><Link key={href} href={href} aria-current={pathname===href?'page':undefined}>{name}</Link>)}
           {isOwner&&<Link href="/owner">Owner</Link>}
           {isStaff&&<Link href="/owner">Staff Console</Link>}
-          <Link href={userId?'/account':'/login'}>{userId?'My Account':'Sign in'}</Link>
+          <Link href={userId?'/account':'/login'} aria-current={pathname==='/account'||pathname==='/login'?'page':undefined}>{userId?'My Account':'Sign in'}</Link>
         </nav>
-        <Link className="cart-link cafe-cart-link" href="/menu#cart" aria-label={'Basket with '+cartCount+' items'}><span aria-hidden="true">◉</span> Basket <span className="count">{cartCount}</span></Link>
+        <div className="mo-header-actions">
+          <Link className="mo-basket-button" href="/menu#cart" aria-label={'Basket with '+cartCount+' items'}>
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path d="M3 9h18l-1.6 9.2A2 2 0 0 1 17.4 20H6.6a2 2 0 0 1-2-1.8L3 9Zm4 0 3-5m7 5-3-5M9 13v3m6-3v3" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            <span className="mo-basket-label">Basket</span><span className="mo-basket-count">{cartCount}</span>
+          </Link>
+          <button type="button" className="mo-nav-toggle" aria-expanded={open} aria-controls="mo-primary-navigation" aria-label={open?'Close navigation':'Open navigation'} onClick={()=>setOpen(!open)}><span/><span/><span/></button>
+        </div>
       </div>
     </header>
   </>;
