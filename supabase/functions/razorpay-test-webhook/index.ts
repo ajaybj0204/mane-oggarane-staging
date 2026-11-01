@@ -107,7 +107,13 @@ Deno.serve(async (request:Request)=>{
           throw new Error('Canonical payment validation failed');
         }
         const {error}=await db.rpc('mark_order_paid',{p_order_id:order.id,p_rzp_order:providerOrderId,p_rzp_payment:canonical.id});
-        if(error)throw error;
+        if(error){
+          // Captured after the order was released: record for the owner to refund/confirm
+          // instead of failing forever (Razorpay would keep retrying this event).
+          if(!/not payable|reservation expired/i.test(error.message||''))throw error;
+          const {error:reviewError}=await db.from('payment_reviews').upsert({order_id:order.id,razorpay_payment_id:canonical.id,amount_paise:canonical.amount,reason:'Payment captured after the order was released'},{onConflict:'razorpay_payment_id',ignoreDuplicates:true});
+          if(reviewError)throw reviewError;
+        }
       }
     } else if(type==='refund.processed'){
       const snapshot=entity(evt,'refund');

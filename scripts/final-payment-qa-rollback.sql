@@ -41,21 +41,35 @@ BEGIN
   END;
   IF NOT v_rejected THEN RAISE EXCEPTION 'FAIL: different second payment accepted';END IF;
 
+  -- Expired reservation that cleanup has NOT released yet: a late captured payment is honoured.
+  INSERT INTO public.orders
+    (customer_name,customer_email,customer_phone,fulfillment_type,subtotal_paise,total_paise,
+     razorpay_order_id,payment_status,status,reservation_expires_at)
+  VALUES('QA Late','rollback@example.invalid','9999999999','pickup',10000,10000,
+     v_expired_rzp||'_late','pending','awaiting_payment',now()-interval '1 minute')
+  RETURNING id INTO v_partial;
+  PERFORM public.mark_order_paid(v_partial,v_expired_rzp||'_late','mno_qa_late_ok');
+  SELECT payment_status INTO v_payment_status FROM public.orders WHERE id=v_partial;
+  IF v_payment_status<>'paid' THEN RAISE EXCEPTION 'FAIL: unreleased late capture not honoured'; END IF;
+
   INSERT INTO public.orders
     (customer_name,customer_email,customer_phone,fulfillment_type,subtotal_paise,total_paise,
      razorpay_order_id,payment_status,status,reservation_expires_at)
   VALUES('QA Expired','rollback@example.invalid','9999999999','pickup',10000,10000,
      v_expired_rzp,'pending','awaiting_payment',now()-interval '1 minute')
   RETURNING id INTO v_expired;
+  -- Migration 012: an expired-but-unreleased order still holds its reservations, so cleanup
+  -- reconciles with Razorpay first. Once RELEASED, a late payment must be rejected (and the
+  -- application records it in payment_reviews for a refund).
+  IF public.release_unpaid_order(v_expired) IS DISTINCT FROM true THEN
+    RAISE EXCEPTION 'FAIL: expired reservation not released';
+  END IF;
   v_rejected:=false;
   BEGIN
     PERFORM public.mark_order_paid(v_expired,v_expired_rzp,'mno_qa_late_payment');
   EXCEPTION WHEN OTHERS THEN v_rejected:=true;
   END;
-  IF NOT v_rejected THEN RAISE EXCEPTION 'FAIL: expired reservation accepted payment'; END IF;
-  IF public.release_unpaid_order(v_expired) IS DISTINCT FROM true THEN
-    RAISE EXCEPTION 'FAIL: expired reservation not released';
-  END IF;
+  IF NOT v_rejected THEN RAISE EXCEPTION 'FAIL: released order accepted late payment'; END IF;
   IF public.release_unpaid_order(v_expired) IS DISTINCT FROM false THEN
     RAISE EXCEPTION 'FAIL: duplicate release not idempotent';
   END IF;

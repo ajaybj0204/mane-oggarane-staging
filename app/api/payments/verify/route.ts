@@ -1,5 +1,5 @@
 import {serviceDb} from '../../../../lib/supabase';import {respond,fail,jsonBody,text} from '../../../../lib/api';
-import {razorpay,verifyCheckout} from '../../../../lib/razorpay';
+import {razorpay,verifyCheckout} from '../../../../lib/razorpay';import {isLateCaptureError,recordPaymentReview} from '../../../../lib/payment-review';
 export const runtime='nodejs';
 export async function POST(req:Request){
  try{
@@ -11,7 +11,8 @@ export async function POST(req:Request){
   if(!verifyCheckout(rzpOrder,rzpPayment,signature))return fail('Payment signature invalid',403);
   const payment=await razorpay(`payments/${encodeURIComponent(rzpPayment)}`);
   if(payment.order_id!==rzpOrder||payment.amount!==order.total_paise||payment.currency!=='INR'||payment.status!=='captured')return fail('Payment capture not confirmed yet. Refresh tracking soon.',409);
-  const {error}=await db.rpc('mark_order_paid',{p_order_id:orderId,p_rzp_order:rzpOrder,p_rzp_payment:rzpPayment});if(error)throw error;
+  const {error}=await db.rpc('mark_order_paid',{p_order_id:orderId,p_rzp_order:rzpOrder,p_rzp_payment:rzpPayment});
+  if(error){if(!isLateCaptureError(error.message))throw error;await recordPaymentReview(orderId,rzpPayment,payment.amount,'Payment captured after the order was released');return fail('Your payment arrived after this order expired. The restaurant has been alerted and will refund it in full; no action is needed from you.',409)}
   return respond({verified:true,orderId,trackingToken:token});
  }catch(e){console.error('payment verification',e);return fail('Could not verify payment yet. Check order tracking before retrying.',503)}
 }
