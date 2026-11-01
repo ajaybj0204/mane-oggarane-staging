@@ -1,4 +1,4 @@
-import {serviceDb} from '../../../../lib/supabase';import {verifyWebhook,razorpay} from '../../../../lib/razorpay';import {respond,fail} from '../../../../lib/api';
+import {serviceDb} from '../../../../lib/supabase';import {verifyWebhook,razorpay} from '../../../../lib/razorpay';import {respond,fail} from '../../../../lib/api';import {isLateCaptureError,recordPaymentReview} from '../../../../lib/payment-review';
 export const runtime='nodejs';
 export async function POST(req:Request){
  const raw=await req.text();const signature=req.headers.get('x-razorpay-signature')||'';
@@ -14,7 +14,9 @@ export async function POST(req:Request){
     const {data:order}=await db.from('orders').select('id,total_paise').eq('razorpay_order_id',providerOrder).maybeSingle();
     if(order){const canonical=await razorpay(`payments/${encodeURIComponent(payment.id)}`);
      if(canonical.status==='captured'&&canonical.amount===order.total_paise&&canonical.currency==='INR'&&canonical.order_id===providerOrder){
-      const {error}=await db.rpc('mark_order_paid',{p_order_id:order.id,p_rzp_order:providerOrder,p_rzp_payment:canonical.id});if(error)throw error;
+      const {error}=await db.rpc('mark_order_paid',{p_order_id:order.id,p_rzp_order:providerOrder,p_rzp_payment:canonical.id});
+      // Captured after the order was released: queue for owner refund instead of retrying forever.
+      if(error){if(!isLateCaptureError(error.message))throw error;await recordPaymentReview(order.id,canonical.id,canonical.amount,'Payment captured after the order was released');}
      }
     }
    }

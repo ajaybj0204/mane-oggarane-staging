@@ -13,7 +13,8 @@ export default function Header(){
   const isStaff=['manager','kitchen','rider'].includes(role||'');
   const links=[['/','Home'],['/menu','Our Menu'],['/story','Our Kitchen'],['/rewards','Rewards'],['/orders','Track Orders']];
   // Status strip only appears when the customer needs to know something (sample menu or outage).
-  const notice=mode==='preview'?'DESIGN PREVIEW · SAMPLE ITEMS · CHECKOUT DISABLED':mode==='error'?'MENU TEMPORARILY UNAVAILABLE · PLEASE REFRESH SHORTLY':'';
+  const demo=process.env.NEXT_PUBLIC_DEMO_MODE==='true';
+  const notice=demo?'DEMO SITE · TEST PAYMENTS ONLY · USE CARD 4111 1111 1111 1111 · NO REAL ORDERS':mode==='preview'?'DESIGN PREVIEW · SAMPLE ITEMS · CHECKOUT DISABLED':mode==='error'?'MENU TEMPORARILY UNAVAILABLE · PLEASE REFRESH SHORTLY':'';
   return <>
     {notice&&<div className="preview-flag mo-status-strip" role="status">{notice}</div>}
     <header className="mo-header">

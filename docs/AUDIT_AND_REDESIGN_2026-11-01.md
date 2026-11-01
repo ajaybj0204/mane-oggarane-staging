@@ -38,3 +38,26 @@ Visual redesign of the **header, homepage hero, "Stories from our kitchen" secti
 
 ## Kannada copy to confirm with a native reader
 Hero: ಮನೆಯ ಊಟ, ಪ್ರೀತಿಯ ರುಚಿ. · Section: ಅಡಿಗೆ ಎಂದರೆ ಪ್ರೀತಿಯ ಅಭಿವ್ಯಕ್ತಿ. · Cards: ಬೆಳಗಿನ ತಾಜಾ ತಿಂಡಿಯ ಸಂತಸ / ಸ್ವಲ್ಪ ಖಾರ, ತುಂಬಾ ಪ್ರೀತಿ / ಪ್ರತಿ ಗುಟುಕಿನಲ್ಲೂ ಮನೆಯ ಮಮತೆ. The card lines in the reference image were garbled AI text, so these were rewritten.
+
+---
+
+## Round 2 (same day) — business content, payment safety, chatbot, retention, sales packaging
+
+| Area | Change | Status |
+|---|---|---|
+| Business details | Hours (Mon–Sun 9 AM–10 PM), Jigani address saved in `settings`; `lib/business.ts` reads them; blank phone/email/FSSAI are hidden, never faked | Applied to staging DB + migration 011 |
+| Menu | Researched descriptions for all 32 dishes (style only; no allergen/nutrition claims) | Applied to staging DB + migration 011 |
+| Policies | `/terms`, `/privacy` (DPDP Act basics), `/refund-policy` (5–7 working-day refunds), `/delivery-policy`, `/contact`, `/policies`; footer links — the five pages Razorpay checks | Code |
+| Finding #1 cleanup | `/api/cron/expire` now **checks Razorpay before releasing** each expired order (captured → mark paid; none → release; API error → retry next run). Vercel Cron daily 02:00 IST (`vercel.json`) | Code; runs after merge to production |
+| Finding #2 late capture | `mark_order_paid` honours late payments while reservations are still held; once released, payment goes to new `payment_reviews` table (webhook returns 200, no infinite retries). Owner sees and resolves them in **Growth & retention** | Migration 012 applied; Supabase webhook redeployed (v5); Next.js routes in code |
+| Finding #3 drift | Migration 010 mirrors the live ₹40 / free-above-₹100 checkout function | Repo |
+| Finding #4 coupon wildcard | `%`/`_` escaped in the quote API | Code |
+| Finding #7 RLS perf | `auth.uid()` wrapped in `select` on 4 policies | Migration 013 applied |
+| Chatbot | Free rules-based assistant (`lib/assistant.ts`, `/api/assistant`, `KitchenAssistant`): live menu, PIN check, fees, hours, address, ordering, payments, refunds, rewards, login help, signed-in customer's own latest order; refuses secrets; rate-limited 40/10 min (migration 014); no transcripts stored | Code + migration applied |
+| Retention | Owner **Growth & retention** tab (7/30/90/365 days): new/returning, repeat rate, AOV, revenue, 2nd-order conversion, inactive 30/60, points, coupons, campaign-attributed sales (labelled as attribution, not lift), top dishes, Test Mode warning | Code |
+| Customer | "Order again" on past orders; saved-address picker at checkout | Code |
+| Sales | `docs/SALES_KIT.md`, `docs/CLIENT_ONBOARDING.md`, `docs/DEMO_AND_SAAS_ROADMAP.md`; `NEXT_PUBLIC_DEMO_MODE` banner | Docs/code |
+
+**Verified:** typecheck; build incl. qa:source 30/30 + qa:logic 8/8; payment SQL suite (incl. new late-capture cases) executed on staging inside a forced rollback — all passed; 40-question chatbot battery; Playwright chat/basket/Esc/mobile placement; no overflow 320–1600 px on all new pages.
+
+**Still needed from the owner:** support phone + email (refund/cancel policy points customers to them), FSSAI number before live payments, Preview env vars on Vercel to test the PR preview with real data.

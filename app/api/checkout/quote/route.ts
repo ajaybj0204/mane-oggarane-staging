@@ -56,7 +56,7 @@ export async function POST(req:Request){
   let discount=0;
   const code=text(body.coupon,40);
   if(code){
-   const {data:coupon,error}=await db.from('coupons').select('id,code,active,expires_at,uses,reserved,max_uses,minimum_paise,customer_id,discount_type,value,max_discount_paise').ilike('code',code.trim()).maybeSingle();
+   const {data:coupon,error}=await db.from('coupons').select('id,code,active,expires_at,uses,reserved,max_uses,minimum_paise,customer_id,discount_type,value,max_discount_paise').ilike('code',code.trim().replace(/[\\%_]/g,m=>'\\'+m)).maybeSingle();
    if(error)throw error;
    if(!coupon||!coupon.active||(coupon.expires_at&&new Date(coupon.expires_at).getTime()<=Date.now())||(coupon.max_uses!==null&&coupon.uses+coupon.reserved>=coupon.max_uses)||subtotal<coupon.minimum_paise||(coupon.customer_id&&coupon.customer_id!==user?.id))return fail('Coupon is invalid, expired, or not eligible');
    const {data:eligible,error:eligibilityError}=await db.rpc('coupon_is_eligible',{p_coupon_id:coupon.id,p_customer_id:user?.id||null});
