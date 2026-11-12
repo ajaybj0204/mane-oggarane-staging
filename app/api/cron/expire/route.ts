@@ -1,5 +1,6 @@
 import {serviceDb} from '../../../../lib/supabase';import {respond,fail} from '../../../../lib/api';
 import {capturedPayments,isLateCaptureError,recordPaymentReview} from '../../../../lib/payment-review';
+import {isOggattuRef} from '../../../../lib/oggattu';
 export const runtime='nodejs';export const dynamic='force-dynamic';
 
 /**
@@ -18,7 +19,8 @@ export async function GET(req:Request){
   for(const o of orders||[]){
    result.checked++;
    try{
-    const captured=o.razorpay_order_id?await capturedPayments(o.razorpay_order_id,o.total_paise):[];
+    // Oggattu Pay (direct UPI) orders aren't known to Razorpay: an unpaid one is simply released.
+    const captured=o.razorpay_order_id&&!isOggattuRef(o.razorpay_order_id)?await capturedPayments(o.razorpay_order_id,o.total_paise):[];
     if(captured.length===1){
      const {error:payError}=await db.rpc('mark_order_paid',{p_order_id:o.id,p_rzp_order:o.razorpay_order_id,p_rzp_payment:captured[0].id});
      if(!payError){result.paid++;continue}

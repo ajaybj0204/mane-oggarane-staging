@@ -2,6 +2,7 @@ import {stagingTransactionsAllowed,prelaunchMessage} from '../../../../../../lib
 import {staffFromRequest,serviceDb} from '../../../../../../lib/supabase';
 import {razorpay} from '../../../../../../lib/razorpay';
 import {respond,fail} from '../../../../../../lib/api';
+import {isOggattuPayment} from '../../../../../../lib/oggattu';
 export const runtime='nodejs';
 type Ctx={params:Promise<{id:string}>};
 export async function POST(req:Request,{params}:Ctx){
@@ -12,6 +13,7 @@ export async function POST(req:Request,{params}:Ctx){
  try{
   const {data:order,error:oError}=await db.from('orders').select('id,razorpay_payment_id,payment_status,total_paise').eq('id',id).maybeSingle();
   if(oError||!order||!order.razorpay_payment_id||order.payment_status!=='paid')return fail('Only captured, currently-paid orders are eligible for this full-refund workflow',409);
+  if(isOggattuPayment(order.razorpay_payment_id))return fail(`This order was paid by direct UPI (Oggattu Pay, UTR ${order.razorpay_payment_id.slice(8)}). Refund it by UPI from the restaurant bank app; Razorpay cannot refund it.`,409);
   // DB primary key provides a transactional one-request-per-order guard across devices.
   const {error:claimError}=await db.from('refund_requests').insert({order_id:id,requested_by:actor.id,requested_amount_paise:order.total_paise,status:'initiated'});
   if(claimError){if(claimError.code==='23505')return fail('Refund already requested. Check Razorpay and your refund records; do not issue a second request.',409);throw claimError}
